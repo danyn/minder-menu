@@ -8,6 +8,8 @@ import { authenticate } from "../shopify.server";
 
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
+import  './app._index/APP/styles/shared.scss';
+
 export const loader = async ({ request }) => {
   await authenticate.admin(request);
 
@@ -23,7 +25,7 @@ export default function App() {
         <Link to="/app" rel="home">
           Home
         </Link>
-        <Link to="/app/additional">Additional page</Link>
+        <Link to="/app/megamenu">Mega Menu</Link>
       </NavMenu>
       <Outlet />
     </AppProvider>

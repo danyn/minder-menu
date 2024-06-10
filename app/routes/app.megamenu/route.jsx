@@ -18,6 +18,8 @@ import {
   MegaMenuCustomDataHandle,
   MegaMenuCustomDataDefinition,
   MegaMenuInitialData,
+  videoUrl,
+  Video,
 } from './Feature/FEATURE_INDEX.js'
 
 
@@ -85,11 +87,11 @@ export default function MegaMenu() {
 
 <div className="SingleLanding">
   <div className="content">
-    <div className="video">
-      Add a full feature megamenu to your site.
+    <div className="flex-center">
+      <Video src={videoUrl.megaMenuIntro}/>
     </div>
-    <div className="launch">
-    <OpenButton/>
+    <div className="flex-center">
+      <OpenButton/>
     </div>
   </div>
   
@@ -109,7 +111,11 @@ function OpenButton() {
 <fetcher.Form method="post" >
   <div onClick={()=>{
     }}>
-    <button >{isLoading ? 'loading': 'open'}</button>
+    <button 
+      className="button button-add"
+      >
+
+      {isLoading ? 'loading': 'Open menu'}</button>
   </div>
 </fetcher.Form>
   )
