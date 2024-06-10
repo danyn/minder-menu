@@ -1,0 +1,529 @@
+.MegaMenu {
+  position: absolute;
+  height: 100%; 
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 200px 1fr 42px;
+  grid-template-areas:
+    "left     top    right"
+    "left   content  right"
+    "left   content  right"
+    "left   content  right"
+    "left   content  right";
+
+    &-FirstEmptyState {
+      position: absolute;
+      z-index: -1;
+      bottom: 50%;
+      transform: translateY(70%);
+      left: 0;
+      right: 0;
+
+      &-Image {
+        img {
+          width: 20%;
+          // border: 5px solid #10cd10;
+          // background: green;
+          // padding: 3px;
+          // border-radius: 50%;
+        }
+      }
+      &-Text {
+        font-size: 32px;
+        font-weight: 400;
+        color: grey;
+        margin-bottom: 40px;
+      }
+    }
+
+    &-ThirdEmptyState {
+        font-size: 17px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 352px;
+        display: grid;
+        // grid-template-columns: 252px 50px;
+        &-Text {
+          padding-right: 9px;
+          color: #2a85ce;
+          font-weight: 500;
+        }
+    
+    }
+    &-HeaderActions-Right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &-TopLevelLinks {
+      
+      padding: 6px 1px 8px 1px;  // dynamic 
+      display: inline-flex;
+      align-items: center;
+      
+      &-Container {
+        padding-top: 18px;
+        grid-area: top;
+      }
+      &-Item {
+        padding: 3px;
+        margin: 0 3px;
+      }
+    }
+  &-ImageBlock {
+    border: 1px solid transparent;
+    &-Active {
+      // overflow: hidden;
+      // border: 1px dashed #d51313;
+
+      border: 1px dashed #1397d5;
+      position: relative;
+      // margin: 2px;
+      // border-top-right-radius: 0px;
+      // &:hover, &:active {
+        border-top-right-radius: 0px;
+        .MegaMenu-LinkItem-DragHandle {
+          display: inline-block;
+          position: absolute;
+          top: 9px;
+          right: 5px;
+          width: 28px;
+          height: 28px;
+          // border: 1px dashed #d51313;
+          border: 1px dashed #1397d5;
+          border-radius: 90px;
+          background: #ffffff91;
+          svg {
+            width: 16px;
+            // fill: #f27f7f;
+            fill: #11a2e5;
+            transform: translate(-1px, 0px);
+          }
+        }
+      // }
+      // &-TopLevel {} 
+    }
+  }
+  
+  &-MenuItem {
+    &-Active {
+      .MegaMenu-LinkItem-DragHandle {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-LinkItem {
+    position: relative;
+
+    &-Active {
+      &:hover, &:active {
+        .MegaMenu-LinkItem-DragHandle {
+          display: inline-block;
+        }
+      }
+      
+      // &-TopLevel {} 
+    }
+
+    &-Anchor {
+      display: inline-block;
+      transition: all 0.2s;
+      font-weight: 500;
+      &-Active {
+        color: #1c84db; 
+        text-decoration: underline;
+      }
+    }
+
+    &-DragHandle {
+      z-index: 33;
+      position: absolute;
+      transform: translateY(-5px);
+      padding: 3px 2px 2px 5px;
+    }
+
+    .Icon {
+      color: #0862cf;
+      width: 28px;
+      padding: 4px;
+      background-color: rgb(205, 204, 204);
+      border-radius: 50%;
+    }
+
+    &-Draggable {
+      // display: inline-block;
+    }
+
+  }
+
+
+  // &-RightSideBar {
+  //   grid-area: right;
+
+  //   &-Toggle {
+  //     z-index: 33;
+  //     position: absolute;
+  //     top: 6px;
+  //     right: 6px;
+  //   }
+
+  //   &-Content {
+  //     position: absolute;
+  //     right: 0;
+  //     top: 0;
+  //     height: 100vh;
+  //     width: 220px;
+  //     border-left: 1px solid;
+  //     z-index: 32;
+  //     background: #ffffff8f;
+  //     backdrop-filter: blur(2px);
+  //     &-Title {
+  //       margin-top: 6px;
+  //       margin-left: 6px;
+  //       display: grid;
+  //       grid-template-columns: 36px 1fr;
+  //       color: #0e88f4;
+  //       font-size: 1rem;
+  //       // &-Icon {}
+  //     } 
+  //     &-Items {
+  //       // margin-top: 36px;
+  //     }
+  //   }
+  // }
+
+  &-LeftSideBar {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    overflow: scroll;
+    border: 1px solid rgb(3, 114, 194);
+    margin-right: 6px;
+    padding-right: 12px;
+    padding-left: 6px;
+    &-Title {
+
+      margin-bottom: 14px;
+      margin-top: 3px;
+      margin-left: 51px;
+      color: #0089ff;
+      font-weight: 600;
+    }
+
+    &-Item {
+
+    }
+    &-ColumnActions {
+      // border: 1px solid #4a4949;
+      padding: 9px 3px;
+    }
+  }
+
+
+
+  &-Column {
+    position: relative;
+    min-width: 30px;
+    border: 1px solid transparent;    
+    background-color: white;
+    transition: padding 300ms ease 0s;
+    /*Parent Container*/
+    &-Container {
+      background: #ffffff9c;
+      position: relative;
+      min-width: 990px;
+      max-width: 1174px;
+      width: 100%;
+      padding: 3px;
+      /*Placement in the App grid layout*/
+      &-Area {
+        grid-area: content;
+      }
+    }
+
+    &-DragHandle {
+      position: absolute;
+      right: -23px;
+      top: -1px;
+      border-radius: 4px;
+      height: 42px;
+      width: 23px;
+      padding-left: 2px;
+      color: #a9cefa;
+      background-color: white;
+      border: 1px dashed #6caeff !important;
+      border-left: none !important;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &-Selected {
+      border-top-right-radius: 0px;
+      border: 1px dashed  #6caeff !important;
+
+      .MegaMenu-Column-Edit {
+        display: block !important;
+        .Action-Icon {
+          background:rgb(63, 160, 240) !important;
+        }
+      }
+    }
+
+    &-Edit {
+      position: absolute;
+      bottom: -50px;
+      right: 0px;
+      width: 100%;
+      padding: 18px 3px 5px 0;
+      .Action {
+        float:right;
+        margin: 4px 2px;
+        &:hover {  
+          .Action-Icon {
+            background: #3fa0f0 !important;
+          }
+        }
+      }
+    }
+  
+    &-hasLink {
+      border: 1px dashed  #a4c9f6 !important;
+      border-radius: 7px;
+    }
+  
+    &:hover {
+      .MegaMenu-Column-Edit {
+        display: block !important;
+      }
+    }
+  
+    &-Droppable {
+      border-radius: 7px;
+      height: 100%;
+      min-height: 150px;
+      /// new
+      &-Item {
+        // padding: 2px 0;
+      }
+    }
+
+    &-Delete {
+      background: white;
+      margin-top: auto;
+      padding: 5px 3px;
+      .Icon {
+        // color: rgb(255, 185, 185);
+      }
+
+    }
+
+    // &-FillSpace, &-LinkWhiteSpace {
+    //   margin-top: 18px;
+    // }
+
+    &-Padding {
+
+      &-Toggle {
+        display: flex;
+        justify-content:  flex-start;
+        padding: 3px 0;
+        position: relative;
+        z-index: 1;
+        .Icon {
+          transition: all 300ms;
+        }
+      }
+      &-Inputs {
+        background: #f9f9f9;
+        padding: 9px 16px;
+      }
+    }
+
+  } /*column*/ 
+
+  &-AddLinkItem {
+    background: white;
+    padding: 5px 3px;
+  }
+  &-FooterActions {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: 32px 95px;
+  }
+  &-Save {
+    margin-top: 12px;
+    margin-bottom: 6px;
+    background-color: rgb(32 193 12);
+    width: 100%;
+    &-Container {
+      width: 100%;
+    }
+  }
+
+
+  // &-Preview {}
+
+
+  &-SaveCluster {
+    margin: 4px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3px;
+  }
+
+
+  &-AddColumn {
+    position: absolute;
+    right: -36px;
+    top: 51px;
+      
+      &-EmptyState {
+        position: absolute;
+        right: 32px;
+        width: 174px;
+        
+        &-Image {
+          transform: translate(38px,-6px);
+        }
+        // &-Text {}
+      }
+  }
+
+
+  &-AddTopLevelLinkItem {
+    transform: translate(15px, -11px);
+    &-EmptyState {
+      transform: translate(39px, -38px);
+      width: 340px;
+      position: absolute;
+      &-Text {
+        font-size: 19px;
+        font-weight: 500;
+        color: #308ad5;
+      }
+    }
+  }
+
+  &-AddImageBlock {
+    &-Settings {
+      padding: 12px 6px;
+      
+      background: white;
+      border-radius: 7px;
+    }
+    &-Input {
+      margin-bottom: 12px;
+      background: #f7f7f7;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px #b3b6b7 dashed;
+    }
+    &-ImagePicker {
+      // margin: 16px 0;
+      padding: 12px;
+      padding-top: 36px;
+    }
+    &-Insert {
+      margin-top: 12px;
+    }
+  }
+
+  // &-SubmenuSettings {}
+  &-ScreenSizeWarning {
+    display: none;
+    position: absolute;
+    left: 195px;
+    padding-right: 80px;
+    transform: translateY(-100%);
+  }
+  
+  &-AddColumnItemModal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    >div {
+      border: 1px solid;
+      height: 80px;
+    }
+
+  }
+  
+}
+
+
+/*
+  Hover initial state for pointer devices
+*/
+
+@media(hover: hover) {
+  .MegaMenu {
+    &-Column-Edit {
+      display: none;
+    }
+    &-LinkItem { 
+      &-DragHandle {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1226px) {
+  .MegaMenu {
+    &-ScreenSizeWarning {
+      display: block;
+    }
+  }
+}
+
+/* 
+  Resize points for keeping the screen while maintaining all the dimensions 
+
+  Gets too janky just inform the user to increase the screen size
+
+.MegaMenu {
+  &-Column {
+    &-Container-Area {
+      @media screen and (max-width: 1230px) {
+        border: 1px solid orange;
+        transform-origin: top left;
+        transform: scale(0.93);
+      }
+      @media screen and (max-width: 1170px) {
+
+        transform: scale(0.88);
+
+      }
+      @media screen and (max-width: 1110px) {
+
+        transform: scale(0.82);
+
+      }
+      @media screen and (max-width: 1050px) {
+
+        transform: scale(0.76);
+
+      }
+      @media screen and (max-width: 990px) {
+
+        transform: scale(0.71);
+
+      }
+      @media screen and (max-width: 930px) {
+
+        transform: scale(0.66);
+
+      }
+
+    }
+  }
+}
+*/

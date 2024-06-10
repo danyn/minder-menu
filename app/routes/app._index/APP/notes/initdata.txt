@@ -1,0 +1,35 @@
+1. hard code a metaobject type in constants 
+    - also create the definition.
+
+2. Check to see if that metaobject type exists by 
+https://shopify.dev/docs/api/admin-graphql/2023-10/queries/metaobjectDefinitionByType
+
+if it doesn't:
+
+   create it:
+   https://shopify.dev/docs/api/admin-graphql/2023-10/mutations/metaobjectDefinitionCreate
+
+   add a first with entry data:
+   https://shopify.dev/docs/api/admin-graphql/2023-10/mutations/metaobjectCreate
+
+this means at this point if it does exist it has entry data
+
+Get the a list of all metaobjects of this type:
+https://shopify.dev/docs/api/admin-graphql/2023-10/queries/metaobjects
+
+  - if its a single it should be at array[0]
+   or you could get a single metaobject by its handle (type+instanceSuffix) :
+   https://shopify.dev/docs/api/admin-graphql/2023-10/queries/metaobjectByHandle
+
+  - there are many its a list
+  - this way no id's need to be store
+  - it just uses the constant value stored as they metafield type
+  - which is common name to all stores and unique within each store.
+
+
+
+
+capabilities
+ https://shopify.dev/docs/apps/build/custom-data/metaobjects/use-metaobject-capabilities
+
+
