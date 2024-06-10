@@ -2,6 +2,7 @@
   "name": "minder-menu",
   "private": true,
   "scripts": {
+    "dev-tunnel": "npm run dev -- --tunnel-url https://theme-toolkit-dev.minder.solutions:5500",
     "build": "remix vite:build",
     "dev": "shopify app dev",
     "config:link": "shopify app config link",
@@ -34,9 +35,11 @@
     "@shopify/shopify-app-remix": "^3.0.0",
     "@shopify/shopify-app-session-storage-prisma": "^5.0.0",
     "isbot": "^5.1.0",
+    "lodash": "^4.17.21",
     "prisma": "^5.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "uuid": "^10.0.0",
     "vite-tsconfig-paths": "^4.3.1"
   },
   "devDependencies": {

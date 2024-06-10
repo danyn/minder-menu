@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "a29865f45c5b9db28f14098f4b95118f"
+name = "minder meny"
+handle = "minder-menu-1"
+application_url = "https://theme-toolkit-dev.minder.solutions"
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = false
+dev_store_url = "never-change-me.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_metaobject_definitions,read_metaobjects,write_metaobject_definitions,write_metaobjects,write_products"
+
+[auth]
+redirect_urls = [
+  "https://theme-toolkit-dev.minder.solutions/auth/callback",
+  "https://theme-toolkit-dev.minder.solutions/auth/shopify/callback",
+  "https://theme-toolkit-dev.minder.solutions/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+[pos]
+embedded = false

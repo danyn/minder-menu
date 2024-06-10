@@ -13,7 +13,6 @@ import {
   Link,
   InlineStack,
 } from "@shopify/polaris";
-import { TitleBar, useAppBridge } from "@shopify/app-bridge-react";
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }) => {
@@ -93,7 +92,8 @@ export default function Index() {
   const nav = useNavigation();
   const actionData = useActionData();
   const submit = useSubmit();
-  const shopify = useAppBridge();
+
+  /** Is loading */
   const isLoading =
     ["loading", "submitting"].includes(nav.state) && nav.formMethod === "POST";
   const productId = actionData?.product?.id.replace(
@@ -101,20 +101,10 @@ export default function Index() {
     "",
   );
 
-  useEffect(() => {
-    if (productId) {
-      shopify.toast.show("Product created");
-    }
-  }, [productId, shopify]);
   const generateProduct = () => submit({}, { replace: true, method: "POST" });
 
   return (
     <Page>
-      <TitleBar title="Remix app template">
-        <button variant="primary" onClick={generateProduct}>
-          Generate a product
-        </button>
-      </TitleBar>
       <BlockStack gap="500">
         <Layout>
           <Layout.Section>
