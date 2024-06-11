@@ -51,6 +51,12 @@ function reducer(state, action) {
         dataId, 
         data,
         dataSource,
+        modals: {
+          ...state.modals,
+          FeatureModal: {
+            isOpen: true,
+          },
+        }
       }
     }
 

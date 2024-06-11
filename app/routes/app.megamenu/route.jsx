@@ -80,9 +80,6 @@ export const loader = async ({ request }) => {
 
 export default function MegaMenu() {
 
-  // const matches = useMatches()
-  // console.log({matches})
-
   return (
 
 <div className="SingleLanding">
@@ -94,10 +91,9 @@ export default function MegaMenu() {
       <OpenButton/>
     </div>
   </div>
-  
-  <div className="featureModal">
-    <Feature />
-  </div>
+
+  <Feature />
+
 </div>
 
   );
@@ -110,6 +106,7 @@ function OpenButton() {
   return (
 <fetcher.Form method="post" >
   <div onClick={()=>{
+
     }}>
     <button 
       className="button button-add"
@@ -120,3 +117,7 @@ function OpenButton() {
 </fetcher.Form>
   )
 }
+
+
+// const matches = useMatches()
+// console.log({matches})

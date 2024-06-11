@@ -17,6 +17,9 @@ export const defaultState = {
     items: [],
   },
   modals: {
+    FeatureModal: {
+      isOpen: false,
+    },
     RightSideBar: {
       isOpen: false,
     },

@@ -12,6 +12,7 @@ import {
   dragDropDispatcher,
   /* UI */
   EmptyStates,
+  FullScreenMode,
 
 } from './FEATURE_INDEX.js'
 
@@ -34,17 +35,14 @@ function FeatureContexts() {
   
   // useInitialize();
   useInitializeFetcher();
-  const dispatch = useLocalState('dispatch')
+  const [state, dispatch] = useLocalState()
 
   return (
 <DerivedState>
   <DragDropContext onDragEnd={ dragEndResult => dragDropDispatcher({dragEndResult, dispatch}) }>  
-    <FeatureContent/>
-    
-  {/* 
-    <MegaMenu />
-    <Modals/>
-  */}
+    <FullScreenMode isOpen={state.modals.FeatureModal.isOpen} >
+      <FeatureContent/>
+    </FullScreenMode>
   </DragDropContext>
 </DerivedState>
   );
@@ -68,6 +66,7 @@ function FeatureContent() {
   {/* <Columns/> */}
 
   <EmptyStates/>
+    {/* <Modals/> */}
   {/* <DismissableErrorMessage/> */}
 </div>
   )
