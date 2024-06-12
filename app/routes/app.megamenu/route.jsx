@@ -84,8 +84,15 @@ export default function MegaMenu() {
 
 <div className="SingleLanding">
   <div className="content">
+    <h3 className="flex-center">Check out our tutorials on you tube</h3>
     <div className="flex-center">
-      <Video src={videoUrl.megaMenuIntro}/>
+      
+      <ul>
+        <li>full playlist</li>
+        <li>current trends in megamenu styles</li>
+        <li>how to add use the minder drag and drop editor</li>
+        <li>how to add a dropdown to your shopify store</li>
+      </ul>
     </div>
     <div className="flex-center">
       <OpenButton/>
