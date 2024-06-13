@@ -1,0 +1,23 @@
+
+
+.MegaMenu-LinkItem-DragHandle {
+    /* position: absolute; */
+    position: absolute;
+    top: 3px;
+    right: -36px;
+    width: 36px;
+    border: 2px solid;
+    border-left: none;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background: white;
+}
+
+.MegaMenu-LinkItem-Group.MegaMenu-LinkItem-Image-Block.MegaMenu-LinkItem-Active {
+    border: 2px solid #000000;
+    border-radius: 6px;
+    border-top-right-radius: 0px;
+    position: relative;
+    margin: 2px;
+}
