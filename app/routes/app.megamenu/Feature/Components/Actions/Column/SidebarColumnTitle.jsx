@@ -3,7 +3,7 @@ import {
   ActionTitle,
   Columns2Major,
   _find,
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 

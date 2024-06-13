@@ -6,7 +6,7 @@ import {
   Action,
   /* Icons */
   LinkMinor,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 export function AddTopLevelLinkItem({emptyState}) {
   const dispatch = useLocalState('dispatch')

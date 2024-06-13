@@ -14,7 +14,7 @@ import {
   Columns2Major,
   ColumnWithTextMajor,
   ThreeColumns,
-} from '../../__index.js';
+} from '../../../FEATURE_INDEX.js';
 
 export function SubmenuSettings() {
   const derivedState = useDerivedState();

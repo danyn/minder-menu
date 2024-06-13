@@ -10,7 +10,7 @@ import {
   /* Icons */
   MeasurementMinor,
   
-} from '../../__index';
+} from '../../../FEATURE_INDEX.js';
 
 export function DropDownType() {
   const dispatch = useLocalState('dispatch')

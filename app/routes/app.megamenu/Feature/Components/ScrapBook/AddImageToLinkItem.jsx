@@ -13,7 +13,7 @@ import {
   ImageWithTextOverlayMajor,
   TextMajor,
   MeasurementMinor,
-} from '../__index.js'
+} from '../../FEATURE_INDEX.js';
 
 export function AddImageToLinkItem({linkItem}) {
 

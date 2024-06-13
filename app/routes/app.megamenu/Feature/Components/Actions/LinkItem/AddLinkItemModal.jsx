@@ -6,7 +6,7 @@ import {
   Modal,
   /* data structures */
   structures,
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 export function AddLinkItemModal() {

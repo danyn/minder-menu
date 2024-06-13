@@ -4,7 +4,7 @@ import {
   AddColumnItemModal,
   ScreenSizeWarning,
   AddImageBlockModal,
-} from '../__index'
+} from '../../FEATURE_INDEX.js';
 
 
 export function Modals() {

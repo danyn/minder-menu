@@ -10,7 +10,7 @@ import {
   /* Utility */
   _find,
   classNames,
-} from '../__index.js'
+} from '../../FEATURE_INDEX.js';
 
 export function Columns() {
 

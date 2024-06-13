@@ -2,7 +2,7 @@ import {
   useLocalState,
   ActionTitle,
   EditMajor
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 

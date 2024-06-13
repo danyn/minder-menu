@@ -5,7 +5,7 @@ import {
   LinkItem,
   TopLevelLinkItem,
   LinkItemImageBlock
-} from  '../__index.js'
+} from  '../../FEATURE_INDEX.js';
 
 export function DraggableLinkItem({
   item, 

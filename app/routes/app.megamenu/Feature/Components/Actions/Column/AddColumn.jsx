@@ -4,9 +4,8 @@ import {
   AddNoteMajor,
   TickMinor,
   Action,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
-import {} from '../../../FEATURE_INDEX.js';
 
 
 export function AddColumn({emptyState}) {

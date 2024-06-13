@@ -11,7 +11,7 @@ import {
   DockSideMajor,
   // MeasurementMinor,
   
-} from '../../__index';
+} from '../../../FEATURE_INDEX.js';
 
 export function JoinLeft() {
   const dispatch = useLocalState('dispatch')

@@ -8,7 +8,7 @@ import {
   /* Icons */
   DragHandleMinor,
   AddImageMajor,
-} from '../__index'
+} from '../../FEATURE_INDEX.js';
 
 
 export function LinkItemImageBlock({

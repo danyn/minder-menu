@@ -19,7 +19,7 @@ import {
   /* Utils */
   _find,
 
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 
 

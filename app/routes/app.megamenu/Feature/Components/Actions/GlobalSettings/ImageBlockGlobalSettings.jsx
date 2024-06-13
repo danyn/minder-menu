@@ -1,7 +1,7 @@
 import  {
   ToggleGroupSection,
   ImageBlockStyle,
-} from '../../__index.js';
+} from '../../../FEATURE_INDEX.js';
 
 export function ImageBlockGlobalSettings() {
   return (

@@ -15,7 +15,7 @@ import {
   getPxFromNumber,
   getNumberFromPx,
   _find,
-} from '../../__index';
+} from '../../../FEATURE_INDEX.js';
 
 
 /**

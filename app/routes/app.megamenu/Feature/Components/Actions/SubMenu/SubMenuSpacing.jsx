@@ -10,7 +10,7 @@ import {
   MeasurementMinor,
   /* Utils */
 
-} from '../../__index';
+} from '../../../FEATURE_INDEX.js';
 
 export function SubMenuSpacing() {
   return (

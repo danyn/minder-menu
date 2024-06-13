@@ -2,7 +2,7 @@ import {
 
   /* Icons */
   RightCaret,
-} from '../__index.js'
+} from '../../FEATURE_INDEX.js';
 
 import {
   useState

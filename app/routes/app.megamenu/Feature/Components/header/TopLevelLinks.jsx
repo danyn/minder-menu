@@ -14,7 +14,7 @@ import {
   EditMajor,
   // LinkItem,
   
-} from '../__index'
+} from '../../FEATURE_INDEX.js';
 
 export function TopLevelLinks() {
   const [state, dispatch] = useLocalState()

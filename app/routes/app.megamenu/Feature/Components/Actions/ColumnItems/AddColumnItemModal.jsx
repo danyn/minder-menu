@@ -6,7 +6,7 @@ import {
   AddImageBlock,
   AddLinkItem,
 
-} from '../../__index.js';
+} from '../../../FEATURE_INDEX.js';
 
 
 

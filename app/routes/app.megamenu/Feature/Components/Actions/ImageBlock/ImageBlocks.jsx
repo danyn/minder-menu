@@ -6,7 +6,7 @@ import {
   Action,
   ImagePicker,
 
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 
 

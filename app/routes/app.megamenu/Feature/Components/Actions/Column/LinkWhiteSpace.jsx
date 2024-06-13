@@ -3,7 +3,7 @@ import {
   Action,
   MaximizeMinor,
   ExpandRetract,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 
 export function LinkWhiteSpace({noWrap = false, dispatchType}) {

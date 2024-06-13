@@ -21,13 +21,14 @@ import {
   /* todo move this functions into a separate file */
   uuid,
   _find,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 import {
   BlockContent,
   SubmitButton,
 } from './ImageBlocks.jsx';
 
+// FIX IMPORT
 import {
   AddNewImageBlock,
 } from '../../__LocalState/initalState.js';

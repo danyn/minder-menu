@@ -1,6 +1,6 @@
 import {
   DragHandleMinor,
-} from '../__index'
+} from '../../FEATURE_INDEX.js';
 
 
 export function DragHandle({provided, selected}) {

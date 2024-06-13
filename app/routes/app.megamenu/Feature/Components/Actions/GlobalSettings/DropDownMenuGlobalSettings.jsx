@@ -3,7 +3,7 @@ import {
   ToggleGroupSection,
   LinkItemGlobalStyle,
 
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 // DropDownMenusSettings
 export function DropDownMenuGlobalSettings() {
   return (

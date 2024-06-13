@@ -4,7 +4,7 @@ import {
   ActionTitle,
   EditMajor,
   _find,
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 

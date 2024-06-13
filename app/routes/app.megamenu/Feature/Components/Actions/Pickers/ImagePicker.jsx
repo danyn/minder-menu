@@ -4,7 +4,7 @@ import {
   /* Icons */
   AddImageMajor,
   ReplaceMajor,
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 

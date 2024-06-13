@@ -5,7 +5,7 @@ import {
   Preview,
   Save,
   
-} from '../__index.js'
+} from '../../FEATURE_INDEX.js';
 
 export function FooterActions() {
   /* Hooks */

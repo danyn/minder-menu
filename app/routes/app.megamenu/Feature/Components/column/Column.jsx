@@ -16,7 +16,7 @@ import {
   DragHandleMinor,
   /* Global UI Components */
 
-} from '../__index.js';
+} from '../../FEATURE_INDEX.js';
 
 
 export function Column({column, index}) {

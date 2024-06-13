@@ -2,7 +2,7 @@ import {
   Action,
   /* Icons */
   ViewMajor,
-} from  '../../__index.js'
+} from  '../../../FEATURE_INDEX.js';
 
 
 

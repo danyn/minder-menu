@@ -1,7 +1,7 @@
 import {
   Save,
   Preview,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 
 export function SaveCluster () {

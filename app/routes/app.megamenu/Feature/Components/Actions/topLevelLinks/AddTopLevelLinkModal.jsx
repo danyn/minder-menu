@@ -3,7 +3,7 @@ import {
   Modal,
   useLocalState,
 
-} from '../../__index.js';
+} from '../../../FEATURE_INDEX.js';
 
 
 

@@ -5,7 +5,7 @@ import {
   Action,
   AddMajor,
   LinkMinor,
-} from '../../__index'
+} from '../../../FEATURE_INDEX.js';
 
 
 export function AddLinkItem() {

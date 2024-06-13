@@ -24,7 +24,7 @@ import {
   /* Utils */
   _find,
 
-} from '../__index.js'
+} from '../../FEATURE_INDEX.js';
 
 export function LeftSideBar() {
   const state = useLocalState('state');

@@ -2,7 +2,7 @@ import {
   useLocalState,
   DeleteMajor,
   Action,
-} from '../../__index.js'
+} from '../../../FEATURE_INDEX.js';
 
 export function DeleteColumn({show}) {
   const [state, dispatch] = useLocalState()
