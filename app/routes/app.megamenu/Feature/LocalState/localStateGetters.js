@@ -63,6 +63,12 @@ function cloneData(state) {
   return _.cloneDeep(state.data)
 }
 
+/**
+ * Return a copy of 'data' from localState along with a reference to its topLevelLinkItems
+ * So it can be placed directly back into state after modifying
+ * @param {*} state 
+ * @returns {} {data, topLevelLinkItems}
+ */
 export function getTopLevelLinkItems(state) {
   const data = cloneData(state)
   // console.log({data})

@@ -46,10 +46,10 @@ mode === 'new' &&
     dispatch({
       type:'topLevelLink',
       payload: {
-        type:'addNewTopLevelLinkItem',
-        data: {}
+        type:'addNew',
+        payload: {},
       }
-    })
+    });
   }}
 >
   Add 

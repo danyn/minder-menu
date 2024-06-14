@@ -14,13 +14,13 @@ import {
 import {v4 as uuid} from 'uuid';
 
 
-export function topLevelLink(state, payload) {
-  const { type, data } = payload;
+export function topLevelLink(state, subPayload) {
+  const { type, payload } = subPayload;
 
   switch (type) {
 
-    case 'addNewTopLevelLinkItem': {
-      console.info('%c ls::topLevelLink::addNewTopLevelLinkItem', C)
+    case 'addNew': {
+      console.info('%c ls::topLevelLink::addNew', C)
 
       const {data, topLevelLinkItems} = getTopLevelLinkItems(state);
       const id = uuid();
@@ -40,13 +40,13 @@ export function topLevelLink(state, payload) {
       }
     }
 
-    case 'selectTopLevelAnchor': {
-      console.info('%c ls::topLevelLink::selectTopLevelAnchor', C)
+    case 'select': {
+      console.info('%c ls::topLevelLink::select', C);
       return {
         ...state,
         currentLinkItem: defaultState.currentLinkItem,
         currentColumn: defaultState.currentColumn,
-        currentTopLevelLinkItem: {...data},
+        currentTopLevelLinkItem: {...payload},
       }
     }
 
@@ -64,7 +64,7 @@ export function topLevelLink(state, payload) {
 
     /* Don't crash the app */
     default: {
-      console.info('%c ls::topLevelLink:: NO CASE FOUND ', C, payload)
+      console.info('%c ls::topLevelLink:: NO CASE FOUND ', C, subPayload)
       return {...state}
     }
 

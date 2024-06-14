@@ -62,10 +62,11 @@ derivedState.b.topLevelLinksArray &&
       dispatch({ 
         type: 'topLevelLink', 
         payload: {
-          type:'selectTopLevelAnchor',
-          data:{id: item.id, text: item.text}},
-        })
-      }}
+          type: 'select',
+          payload: {id: item.id, text: item.text},
+        },
+      });
+    }}
   />
 
 })
