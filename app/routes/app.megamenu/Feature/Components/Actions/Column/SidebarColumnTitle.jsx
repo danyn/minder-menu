@@ -2,9 +2,10 @@ import {
   useLocalState,
   ActionTitle,
   Columns2Major,
-  _find,
+  
 } from '../../../FEATURE_INDEX.js';
 
+// import _ from 'lodash';
 
 
 export function SidebarColumnTitle() {

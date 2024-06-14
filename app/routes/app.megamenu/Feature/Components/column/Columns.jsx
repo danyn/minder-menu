@@ -8,7 +8,6 @@ import {
   Column,
   AddColumn,
   /* Utility */
-  _find,
   classNames,
 } from '../../FEATURE_INDEX.js';
 
@@ -64,16 +63,6 @@ export function Columns() {
   )
 }
 
-/**
-
-const currentTopLevelLinkItem =   _find(state.topLevelLinkItems.items , ['id', state.currentTopLevelLinkItem.id]);
-  const b = {
-    hasColumns: currentTopLevelLinkItem?.columns?.length > 0,
-    hasColumnsArray: Array.isArray(currentTopLevelLinkItem?.columns),
-    isFirstTopLevelLink: state?.topLevelLinkItems?.items?.length === 1,
-  }
-
- */
 
 
 

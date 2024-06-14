@@ -16,9 +16,6 @@ import {
   GlobeMajor,
 
 
-  /* Utils */
-  _find,
-
 } from '../../../FEATURE_INDEX.js';
 
 

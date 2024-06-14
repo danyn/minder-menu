@@ -14,10 +14,9 @@ import {
   /* Utils */
   getPxFromNumber,
   getNumberFromPx,
-  _find,
 } from '../../../FEATURE_INDEX.js';
 
-
+import _ from 'lodash';
 /**
  * 
  * @param {subModule = {'global' | 'imageBlock'}}  
@@ -49,9 +48,9 @@ export function ImageBlockStyle({subModule='global'} ) {
     } 
     const items = target?.items 
 
-    targetTitle = _find(items, {className:classNameTitle })?.style
-    targetDescription = _find(items, {className:classNameDescription })?.style
-    targetCTA = _find(items, {className:classNameCTA })?.style
+    targetTitle = _.find(items, {className:classNameTitle })?.style
+    targetDescription = _.find(items, {className:classNameDescription })?.style
+    targetCTA = _.find(items, {className:classNameCTA })?.style
 
     // console.log({
     //   target,

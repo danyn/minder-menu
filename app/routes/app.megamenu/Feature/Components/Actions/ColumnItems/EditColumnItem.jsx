@@ -3,17 +3,16 @@ import {
   ImageBlockStyle,
   ActionTitle,
   EditMajor,
-  _find,
 } from '../../../FEATURE_INDEX.js';
 
-
+import _ from 'lodash';
 
 export function EditColumnItem({linkItem: item}) {
   const dispatch = useLocalState('dispatch');
   if(!Boolean(item)) return null;
   let text, role;
   if(item?.role === 'imageBlock') {
-    text = _find(item?.items, {role:'title'})?.text?.slice(0,11)?.concat('...');
+    text = _.find(item?.items, {role:'title'})?.text?.slice(0,11)?.concat('...');
   } else {
     text = item?.child?.text?.slice(0,11)?.concat('...');
   }

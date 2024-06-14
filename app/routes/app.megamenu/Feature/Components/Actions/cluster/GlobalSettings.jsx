@@ -3,8 +3,8 @@ import {
   Action,
   /* Icons */
   SettingsMajor,
-} from  '../../FEATURE_INDEX.js';
-
+} from  '../../../FEATURE_INDEX.js';
+// '../../FEATURE_INDEX.js'
 export function GlobalSettingsToggle() {
   const [state, dispatch] = useLocalState()
   return (

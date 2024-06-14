@@ -3,7 +3,7 @@ import {
   /* State */
   useLocalState,
   useDerivedState,
-  initialState,
+  // initialState,
 
   /* Global Component */
   Action,
@@ -20,7 +20,7 @@ import {
   // AddColumnItemModal,
   /* todo move this functions into a separate file */
   uuid,
-  _find,
+  newImageBlock
 } from '../../../FEATURE_INDEX.js';
 
 import {
@@ -28,10 +28,12 @@ import {
   SubmitButton,
 } from './ImageBlocks.jsx';
 
+import _ from 'lodash';
+
 // FIX IMPORT
-import {
-  AddNewImageBlock,
-} from '../../__LocalState/initalState.js';
+// import {
+//   newImageBlock,
+// } from '../../__LocalState/initalState.js';
 
 
 /**
@@ -129,13 +131,13 @@ export function AddImageBlockSettings() {
     if(mode === 'update') {
       _items = currentColumnLink?.items;
     } else {
-      _items = AddNewImageBlock();
+      _items = newImageBlock();
     }
   
-    setTitle(_find(_items, {className: "ImageBlockTitle"})?.text);
-    setDescription(_find(_items, {className: "ImageBlockDescription"})?.text);
-    setCTA(_find(_items, {className: "ImageBlockCta"})?.text);
-    setImageFile(_find(_items, {className: "ImageBlockImage"}));
+    setTitle(_.find(_items, {className: "ImageBlockTitle"})?.text);
+    setDescription(_.find(_items, {className: "ImageBlockDescription"})?.text);
+    setCTA(_.find(_items, {className: "ImageBlockCta"})?.text);
+    setImageFile(_.find(_items, {className: "ImageBlockImage"}));
     setItems(_items);
 
   },[])
