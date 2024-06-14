@@ -223,6 +223,10 @@ export {DismissableErrorMessage} from './Components/modals/DismissableErrorMessa
 /* Actions */
 
 export {
+  Exit,
+} from './Components/Actions/cluster/Exit.jsx';
+
+export {
   SaveCluster,
 } from './Components/Actions/cluster/SaveCluster.jsx';
 
@@ -334,6 +338,7 @@ export {
   CheckIcon as TickMinor,
   ViewIcon as ViewMajor,
   ReplaceIcon as ReplaceMajor,
+  ExitIcon,
 
 } from '@shopify/polaris-icons';
 

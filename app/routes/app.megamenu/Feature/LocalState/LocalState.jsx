@@ -7,11 +7,13 @@ import { newMegaMenu } from './InitialState.js';
 
 // import { subMenu } from './subMenu.js'
 // import { settings } from './settings.js'
-// import {clusterActions} from './clusterActions.js'
+
 // import {errorMessaging} from './errorMessaging.js'
 // import {imageBlock} from './imageBlock.js'
 // import {global} from './global.js'
 // import { columnItems } from "./columnItems.js";
+
+import {clusterActions} from './subModules/clusterActions.js';
 import {topLevelLink} from './subModules/topLevelLink.js';
 import {modals} from './subModules/modals.js';
 
@@ -95,10 +97,11 @@ function reducer(state, action) {
     
     // case 'subMenu': return subMenu(state, payload)
     // case 'dragEvent': return dragEvent(state, payload)
-    // case 'clusterAction': return clusterActions(state, payload)
+ 
     // case 'columnItems': return columnItems(state, payload)
     case 'modals': return modals(state, payload)
     case 'topLevelLink': return topLevelLink(state, payload)
+    case 'clusterAction': return clusterActions(state, payload)
 
     /* Don't crash the reducer just warn */
     default: {

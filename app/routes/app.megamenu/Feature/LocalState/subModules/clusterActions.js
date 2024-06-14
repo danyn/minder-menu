@@ -1,6 +1,6 @@
 import {
   C
-} from './__defaultState';
+} from '../DefaultState.js';
 
 import {
   parseStyleObjects,
@@ -10,8 +10,8 @@ import {
 
 
 
-export function clusterActions(state, payload) {
-  const { type, data } = payload;
+export function clusterActions(state, subPayload) {
+  const { type, payload } = subPayload;
 
   switch (type) {
 
@@ -26,6 +26,20 @@ export function clusterActions(state, payload) {
         ...state,
       }
 
+    }
+
+    case 'exit': {
+      // TODO check for unsaved changes... create dialog for that
+      console.info('%cls::clusterActions::exit', C,);
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          FeatureModal: {
+            isOpen: false,
+          }
+        }
+      }
     }
 
 

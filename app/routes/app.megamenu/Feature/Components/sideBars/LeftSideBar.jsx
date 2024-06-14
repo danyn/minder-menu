@@ -20,6 +20,7 @@ import {
   ImageBlockSettings,
   Save,
   SaveCluster,
+  Exit,
 
 
 } from '../../FEATURE_INDEX.js';
@@ -37,7 +38,7 @@ export function LeftSideBar() {
     // borderRight: derivedState.b.currentTopLevelLinkItem ? '1px solid grey' : 'none'
   }}
   >
-  
+  <Exit/>
   <SaveCluster/>
 {/* 
   ********** TopLevelLinkActions *************
