@@ -13,6 +13,8 @@ export function Exit() {
       text='Exit'
       outlined={true}
       small={true}
+      iconStyle={{width: '30px', height: '30px'}}
+      textStyle={{display: 'flex', justifyContent: 'center', transform: 'translateX(-16px)'}}
       // padded={true}
       inverted={true}
       onClick={(e) => {

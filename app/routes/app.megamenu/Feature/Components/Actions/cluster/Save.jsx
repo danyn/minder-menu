@@ -16,6 +16,15 @@ export function Save() {
     outlined={true}
     small={true}
     inverted={true}
+    onClick={() => {
+      dispatch({
+        type: 'clusterAction',
+        payload: {
+          type: 'save',
+          payload: {},
+        }
+      })
+    }}  
   />
 </div>
   )
