@@ -12,7 +12,7 @@ import { newMegaMenu } from './InitialState.js'
 // import {imageBlock} from './imageBlock.js'
 // import {global} from './global.js'
 // import { columnItems } from "./columnItems.js";
-// import {modals} from './modals.js'
+import {modals} from './subModules/modals.js';
 
 
 // import{
@@ -96,7 +96,7 @@ function reducer(state, action) {
     // case 'dragEvent': return dragEvent(state, payload)
     // case 'clusterAction': return clusterActions(state, payload)
     // case 'columnItems': return columnItems(state, payload)
-    // case 'modals': return modals(state, payload)
+    case 'modals': return modals(state, payload)
 
     /* Don't crash the reducer just warn */
     default: {
