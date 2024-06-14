@@ -4,3 +4,4 @@ https://stackblitz.com/edit/remix-run-remix-gwmg8d?file=app%2Froutes%2F_index.ts
 
 [shopify app cli commands](https://shopify.dev/docs/api/shopify-cli/app/app-config-use)
 
+https://remix.run/docs/en/1.19.3/route/should-revalidate

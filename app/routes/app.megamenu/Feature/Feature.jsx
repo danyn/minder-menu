@@ -15,6 +15,7 @@ import {
   Modals,
   FullScreenMode,
   TopLevelLinks,
+  LeftSideBar,
 
 } from './FEATURE_INDEX.js'
 
@@ -63,7 +64,7 @@ function FeatureContent() {
 
   <TopLevelLinks/>
 
-  {/* <LeftSideBar/> */}
+  <LeftSideBar/>
 
   {/* <Columns/> */}
 
