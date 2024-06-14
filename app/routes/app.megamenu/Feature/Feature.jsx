@@ -13,6 +13,7 @@ import {
   /* UI */
   EmptyStates,
   FullScreenMode,
+  TopLevelLinks,
 
 } from './FEATURE_INDEX.js'
 
@@ -59,7 +60,7 @@ function FeatureContent() {
   return (
 <div className='MegaMenu'>
 
-  {/* <TopLevelLinks/> */}
+  <TopLevelLinks/>
 
   {/* <LeftSideBar/> */}
 

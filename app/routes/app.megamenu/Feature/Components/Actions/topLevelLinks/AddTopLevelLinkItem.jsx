@@ -8,6 +8,10 @@ import {
   LinkMinor,
 } from '../../../FEATURE_INDEX.js';
 
+import {
+  imageUrl,
+} from '../../../../../app._index/APP/APP_INDEX.js' 
+
 export function AddTopLevelLinkItem({emptyState}) {
   const dispatch = useLocalState('dispatch')
   return (
@@ -36,7 +40,7 @@ export function AddTopLevelLinkItem({emptyState}) {
 {
 emptyState &&
 <div className="MegaMenu-AddTopLevelLinkItem-EmptyState">
-  <img className="MegaMenu-AddTopLevelLinkItem-EmptyState-Image" src='/curved-arrow.svg' width='80px' height='80px'/>
+  <img className="MegaMenu-AddTopLevelLinkItem-EmptyState-Image" src={imageUrl.curvedArrowLeft} width='80px' height='80px'/>
   <div className="MegaMenu-AddTopLevelLinkItem-EmptyState-Text">Start by adding links</div>
 </div>
   
