@@ -62,8 +62,8 @@ mode === 'editing' &&
     dispatch({
       type:'topLevelLink',
       payload: {
-        type:'updateTopLevelLinkItem',
-        data: {}
+        type: 'update',
+        payload: {}
       }
     })
   }}

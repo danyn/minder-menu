@@ -50,16 +50,16 @@ export function topLevelLink(state, subPayload) {
       }
     }
 
-    case 'updateTopLevelLinkItem': {
-      console.info('%c ls::topLevelLink::updateTopLevelLinkItem', C);
+    case 'update': {
+      console.info('%c ls::topLevelLink::update', C);
+      // TODO currently just closes modal
       return {
         ...state,
         modals: {
           ...state.modals,
-          // TODO currently just close modal proceed
-            AddLinkItemModal: defaultState.modals.AddLinkItemModal,
-          }
+          AddLinkItemModal: defaultState.modals.AddLinkItemModal,
         }
+      }
     }
 
     /* Don't crash the app */
