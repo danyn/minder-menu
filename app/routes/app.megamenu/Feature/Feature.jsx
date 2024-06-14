@@ -12,6 +12,7 @@ import {
   dragDropDispatcher,
   /* UI */
   EmptyStates,
+  Modals,
   FullScreenMode,
   TopLevelLinks,
 
@@ -67,7 +68,7 @@ function FeatureContent() {
   {/* <Columns/> */}
 
   <EmptyStates/>
-    {/* <Modals/> */}
+  <Modals/>
   {/* <DismissableErrorMessage/> */}
 </div>
   )
