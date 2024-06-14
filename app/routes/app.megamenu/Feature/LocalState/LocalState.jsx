@@ -1,10 +1,10 @@
 import React, { useReducer, useContext } from "react";
 import { defaultState, C } from './DefaultState.js';
-import { newMegaMenu } from './InitialState.js'
+import { newMegaMenu } from './InitialState.js';
 
 /*sub modules*/
 // import { dragEvent } from "./dragEvent.js";
-// import {  topLevelLink } from './topLevelLink.js'
+
 // import { subMenu } from './subMenu.js'
 // import { settings } from './settings.js'
 // import {clusterActions} from './clusterActions.js'
@@ -12,6 +12,7 @@ import { newMegaMenu } from './InitialState.js'
 // import {imageBlock} from './imageBlock.js'
 // import {global} from './global.js'
 // import { columnItems } from "./columnItems.js";
+import {topLevelLink} from './subModules/topLevelLink.js';
 import {modals} from './subModules/modals.js';
 
 
@@ -91,12 +92,13 @@ function reducer(state, action) {
     // case 'errorMessaging': return errorMessaging(state, payload)
     // case 'imageBlock': return imageBlock(state, payload)
     // case 'settings': return settings(state, payload)
-    // case 'topLevelLink': return topLevelLink(state, payload)
+    
     // case 'subMenu': return subMenu(state, payload)
     // case 'dragEvent': return dragEvent(state, payload)
     // case 'clusterAction': return clusterActions(state, payload)
     // case 'columnItems': return columnItems(state, payload)
     case 'modals': return modals(state, payload)
+    case 'topLevelLink': return topLevelLink(state, payload)
 
     /* Don't crash the reducer just warn */
     default: {

@@ -1,21 +1,17 @@
 import {
   defaultState,
   C,
-} from './__defaultState.js';
-
-import {
-  uuid,
-  getTopLevelLinkItems,
-}  from  '../__index.js';
-
-import {
-  // getTopLevelLinkItems,
-  // getTopLevelLinkItem,
-} from './utils.js'
+} from '../DefaultState.js';
 
 import {
   newTopLevelLinkItem,
-} from './initalState'
+} from '../InitialState.js';
+
+import {
+  getTopLevelLinkItems,
+}  from  '../../FEATURE_INDEX.js';
+
+import {v4 as uuid} from 'uuid';
 
 
 export function topLevelLink(state, payload) {
