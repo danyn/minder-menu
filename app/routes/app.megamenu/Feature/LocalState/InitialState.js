@@ -155,7 +155,7 @@ export function newColumn({id}) {
 }
 
 export function newImageBlock(payload) {
-  const {title, description, CTA} = payload;
+  const {title, description, CTA, imgSrc} = payload;
 
   return {
     hasStyleRules: false,
@@ -174,7 +174,7 @@ export function newImageBlock(payload) {
         className: classNames.imageBlock.image.image,
         classList: classNames.imageBlock.image.image,
         tagName: 'img',
-        url: payload.imgSrc,
+        url: imgSrc,
         alt: '',
         style: {},
         container: {
@@ -218,7 +218,7 @@ export function newImageBlock(payload) {
 /**
   Structures
  */
-// this is like an interfact in typescript
+
 export const structures = {
   imageFile: {
     file: undefined,
