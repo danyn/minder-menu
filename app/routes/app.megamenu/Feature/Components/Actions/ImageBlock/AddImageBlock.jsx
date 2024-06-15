@@ -30,11 +30,6 @@ import {
 
 import _ from 'lodash';
 
-// FIX IMPORT
-// import {
-//   newImageBlock,
-// } from '../../__LocalState/initalState.js';
-
 
 /**
  * mode can be edit or new
@@ -57,7 +52,8 @@ export function AddImageBlock() {
     // textStyle={{color: 'black'}}
     padded={true}
     onClick={(e) => {
-      e.stopPropagation()
+      console.log('i should only open a modal');
+      e.stopPropagation();
       dispatch({
         type: 'modals',
         payload: {

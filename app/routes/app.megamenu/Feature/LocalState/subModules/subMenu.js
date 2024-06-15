@@ -8,7 +8,6 @@ import {
   getColumn,
   getLinkItem,
   getcolumnIndex,
-  newImageBlock,
 } from '../../FEATURE_INDEX.js';
 
 import{v4 as uuid}  from  'uuid';

@@ -9,7 +9,7 @@ import { newMegaMenu } from './InitialState.js';
 // import { settings } from './settings.js'
 
 // import {errorMessaging} from './errorMessaging.js'
-// import {imageBlock} from './imageBlock.js'
+
 // import {global} from './global.js'
 
 
@@ -19,6 +19,8 @@ import { modals } from './subModules/modals.js';
 import { subMenu } from './subModules/subMenu.js';
 import { dragEvent } from "./subModules/dragEvent.js";
 import { columnItems } from "./subModules/columnItems.js";
+
+import { imageBlock } from './subModules/imageBlock.js';
 
 // import{
 //   newMegaMenu,
@@ -94,7 +96,7 @@ function reducer(state, action) {
     /* Sub Modules */
     // case 'global': return global(state, payload)
     // case 'errorMessaging': return errorMessaging(state, payload)
-    // case 'imageBlock': return imageBlock(state, payload)
+    
     // case 'settings': return settings(state, payload)
     
     
@@ -107,6 +109,7 @@ function reducer(state, action) {
     case 'subMenu': return subMenu(state, payload);
     case 'dragEvent': return dragEvent(state, payload);
     case 'columnItems': return columnItems(state, payload);
+    case 'imageBlock': return imageBlock(state, payload);
 
     /* Don't crash the reducer just warn */
     default: {

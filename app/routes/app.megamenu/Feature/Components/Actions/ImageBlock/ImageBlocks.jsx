@@ -128,12 +128,13 @@ export function SubmitButton({
 <div 
   className='MegaMenu-AddImageBlock-Insert button button-add'
   onClick={(e) => {
+    console.log('ImageBlocks::SubmitButton ->', 'onclick');
     e.stopPropagation();
-
+// 
     dispatch({
       type: 'imageBlock',
       payload: { 
-        type: 'addNew',
+        type: 'addNew', //
         payload: {
           title,
           description,

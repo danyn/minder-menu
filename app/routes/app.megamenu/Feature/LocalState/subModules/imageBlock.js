@@ -1,19 +1,13 @@
 import {
-  defaultState,
-  C,
-} from './__defaultState.js';
-
-import {
-  classNames,
-} from './initalState.js'
-
-import{
   newImageBlock,
   getLinkItem,
   getColumn,
-  _find,
-}  from  '../__index.js';
+  classNames,
+  defaultState,
+  C,
+} from '../../FEATURE_INDEX';
 
+import _ from 'lodash';
 
 export function imageBlock(state, subPayload) {
   const { type, payload } = subPayload;
@@ -117,9 +111,9 @@ export function imageBlock(state, subPayload) {
 
 function getBlockItems(items, classNames, state) {
   return {
-    [classNames.imageBlock.title]: _find(items, {className: classNames.imageBlock.title } ),
-    [classNames.imageBlock.description]: _find(items, {className: classNames.imageBlock.description } ) ,
-    [classNames.imageBlock.Cta]: _find(items, {className: classNames.imageBlock.Cta } ) ,
+    [classNames.imageBlock.title]: _.find(items, {className: classNames.imageBlock.title } ),
+    [classNames.imageBlock.description]: _.find(items, {className: classNames.imageBlock.description } ) ,
+    [classNames.imageBlock.Cta]: _.find(items, {className: classNames.imageBlock.Cta } ) ,
   }
 }
 
