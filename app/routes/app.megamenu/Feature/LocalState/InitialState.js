@@ -228,27 +228,27 @@ export const structures = {
 };
 
 
-// export function AddNewImageBlock() {
-//   return  [
-//       {
-//         className: "ImageBlockImage",
-//         url: undefined,
-//         id: uuid(),
-//       },
-//       {
-//         className: "ImageBlockTitle",
-//         text: "Title",
-//         id: uuid(),
-//       },
-//       {
-//         className: "ImageBlockDescription",
-//         text: "A short description",
-//         id: uuid(),
-//       },
-//       {
-//         className: "ImageBlockCta",
-//         text: "Call to action",
-//         id: uuid(),
-//       }
-//     ]
-// }
+export function addNewImageBlock() {
+  return  [
+      {
+        className: "ImageBlockImage",
+        url: undefined,
+        id: uuid(),
+      },
+      {
+        className: "ImageBlockTitle",
+        text: "Title",
+        id: uuid(),
+      },
+      {
+        className: "ImageBlockDescription",
+        text: "A short description",
+        id: uuid(),
+      },
+      {
+        className: "ImageBlockCta",
+        text: "Call to action",
+        id: uuid(),
+      }
+    ]
+}

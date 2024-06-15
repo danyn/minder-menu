@@ -20,18 +20,18 @@ export {
 } from './LocalState/DefaultState.js';
 
 
-export {
-  newMegaMenu,
-  newTopLevelLinkItem,
-  newLinkItem,
-  newColumnContainer,
-  newColumn,
-  newImageBlock,
-  classNames,
-  structures,
-} from './LocalState/InitialState.js';
+// export {
+//   newMegaMenu,
+//   newTopLevelLinkItem,
+//   newLinkItem,
+//   newColumnContainer,
+//   newColumn,
+//   newImageBlock,
+//   classNames,
+//   structures,
+// } from './LocalState/InitialState.js';
 
-
+export * from './LocalState/InitialState.js';
 
 export {
   dragDropDispatcher,

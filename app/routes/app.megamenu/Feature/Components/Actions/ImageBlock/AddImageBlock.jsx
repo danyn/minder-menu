@@ -20,7 +20,8 @@ import {
   // AddColumnItemModal,
   /* todo move this functions into a separate file */
   uuid,
-  newImageBlock
+  // newImageBlock,
+  addNewImageBlock,
 } from '../../../FEATURE_INDEX.js';
 
 import {
@@ -126,8 +127,10 @@ export function AddImageBlockSettings() {
     let _items;
     if(mode === 'update') {
       _items = currentColumnLink?.items;
+    } else if (mode === 'new') {
+      _items = addNewImageBlock();
     } else {
-      _items = newImageBlock();
+      throw new Error('No mode for image block modal')
     }
   
     setTitle(_.find(_items, {className: "ImageBlockTitle"})?.text);
