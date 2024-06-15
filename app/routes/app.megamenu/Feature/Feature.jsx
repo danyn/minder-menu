@@ -16,6 +16,7 @@ import {
   FullScreenMode,
   TopLevelLinks,
   LeftSideBar,
+  Columns,
 
 } from './FEATURE_INDEX.js'
 
@@ -35,8 +36,6 @@ export default function Feature() {
 
 function FeatureContexts() {
 
-  
-  // useInitialize();
   useInitializeFetcher();
   const [state, dispatch] = useLocalState()
 
@@ -52,6 +51,10 @@ function FeatureContexts() {
 
 }
 
+/**
+ * All of the components that need access to the contexts including LocalState, and React DnD
+ * @returns JSX
+ */
 function FeatureContent() {
   /* hooks */
   // const [state, dispatch] = useLocalState();
@@ -66,7 +69,7 @@ function FeatureContent() {
 
   <LeftSideBar/>
 
-  {/* <Columns/> */}
+  <Columns/>
 
   <EmptyStates/>
   <Modals/>

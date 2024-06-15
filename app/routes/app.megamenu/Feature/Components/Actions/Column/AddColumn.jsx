@@ -4,6 +4,7 @@ import {
   AddNoteMajor,
   TickMinor,
   Action,
+  imageUrl,
 } from '../../../FEATURE_INDEX.js';
 
 
@@ -24,7 +25,7 @@ export function AddColumn({emptyState}) {
 {
 emptyState &&
   <div className="MegaMenu-AddColumn-EmptyState">
-    <img className="MegaMenu-AddColumn-EmptyState-Image" src='/curved-arrow-right.svg' width='80px' height='80px' />
+    <img className="MegaMenu-AddColumn-EmptyState-Image" src={imageUrl.curvedArrowRight} width='80px' height='80px' />
     <p className="MegaMenu-AddColumn-EmptyState-Text text-blue-500">
       <span className="tick Icon"><TickMinor/></span>
       Create a dropdown menu by adding columns <br/>
