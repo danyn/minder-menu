@@ -1,24 +1,17 @@
 import {
   defaultState,
   C,
-} from './__defaultState.js';
-
-import {
-  initialState,
-  // newLinkItem,
   newColumn,
   classNames,
-} from './initalState'
-
-import{
-  uuid,
   newColumnContainer,
   getTopLevelLinkItem,
   getColumn,
   getLinkItem,
   getcolumnIndex,
   newImageBlock,
-}  from  '../__index.js';
+} from '../../FEATURE_INDEX.js';
+
+import{v4 as uuid}  from  'uuid';
 
 
 export function subMenu(state, payload) {

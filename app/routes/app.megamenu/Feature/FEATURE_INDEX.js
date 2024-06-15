@@ -15,6 +15,25 @@ export {
 } from './LocalState/DerivedState.jsx';
 
 export {
+  defaultState,
+  C,
+} from './LocalState/DefaultState.js';
+
+
+export {
+  newMegaMenu,
+  newTopLevelLinkItem,
+  newLinkItem,
+  newColumnContainer,
+  newColumn,
+  newImageBlock,
+  classNames,
+  structures,
+} from './LocalState/InitialState.js';
+
+
+
+export {
   dragDropDispatcher,
   dropTypes,
 } from './LocalState/dragDropDispatcher.js';
@@ -59,17 +78,7 @@ export * from './CustomData/definitions.js'
 //   newMegaMenu,
 // } from './__LocalState/initalState';
 
-export {
-  newMegaMenu,
-  newTopLevelLinkItem,
-  newLinkItem,
-  newColumnContainer,
-  newColumn,
-  newImageBlock,
-  // initialState,
-  classNames,
-  structures,
-} from './LocalState/InitialState.js';
+
 
 // './__LocalState/initalState'
 

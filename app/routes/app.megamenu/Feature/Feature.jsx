@@ -18,7 +18,7 @@ import {
   LeftSideBar,
   Columns,
 
-} from './FEATURE_INDEX.js'
+} from './FEATURE_INDEX.js';
 
 import { 
   DragDropContext,
