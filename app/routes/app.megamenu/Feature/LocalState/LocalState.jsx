@@ -3,7 +3,7 @@ import { defaultState, C } from './DefaultState.js';
 import { newMegaMenu } from './InitialState.js';
 
 /*sub modules*/
-// import { dragEvent } from "./dragEvent.js";
+
 
 
 // import { settings } from './settings.js'
@@ -13,10 +13,11 @@ import { newMegaMenu } from './InitialState.js';
 // import {global} from './global.js'
 // import { columnItems } from "./columnItems.js";
 
-import {clusterActions} from './subModules/clusterActions.js';
-import {topLevelLink} from './subModules/topLevelLink.js';
-import {modals} from './subModules/modals.js';
+import { clusterActions } from './subModules/clusterActions.js';
+import { topLevelLink } from './subModules/topLevelLink.js';
+import { modals } from './subModules/modals.js';
 import { subMenu } from './subModules/subMenu.js';
+import { dragEvent } from "./subModules/dragEvent.js";
 
 
 // import{
@@ -97,13 +98,14 @@ function reducer(state, action) {
     // case 'settings': return settings(state, payload)
     
     
-    // case 'dragEvent': return dragEvent(state, payload)
+    
  
     // case 'columnItems': return columnItems(state, payload)
     case 'modals': return modals(state, payload);
     case 'topLevelLink': return topLevelLink(state, payload);
     case 'clusterAction': return clusterActions(state, payload);
     case 'subMenu': return subMenu(state, payload);
+    case 'dragEvent': return dragEvent(state, payload)
 
     /* Don't crash the reducer just warn */
     default: {

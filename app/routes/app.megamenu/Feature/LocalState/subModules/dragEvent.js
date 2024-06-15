@@ -1,12 +1,9 @@
 import {
-  C
-} from './__defaultState.js';
-
-import {
-  _find,
-  _cloneDeep,
+  C,
   getTopLevelLinks,
-} from '../__index.js';
+} from '../../FEATURE_INDEX.js';
+
+import _ from 'lodash';
 
 
 
@@ -18,7 +15,7 @@ export function dragEvent (state, payload) {
   if(!dragEndResult.destination) return {...state};
 
   /* Make a copy to allow pass by reference and mutating same array */
-  const topLevelLinkItems = _cloneDeep(getTopLevelLinks(state));
+  const topLevelLinkItems = _.cloneDeep(getTopLevelLinks(state));
 
 
   // console.log('topLevelLinkItems', topLevelLinkItems);
@@ -102,10 +99,10 @@ function handleMovingNestedItems({arrayOfDroppables, dragEndResult}) {
 
   /* Leverage pass by reference */
   
-  const _sourceDroppable = _find(arrayOfDroppables, function(o){ 
+  const _sourceDroppable = _.find(arrayOfDroppables, function(o){ 
     return o.list.id === source.droppableId
   });
-  const _destinationDroppable = _find(arrayOfDroppables, function(o)  { 
+  const _destinationDroppable = _.find(arrayOfDroppables, function(o)  { 
     return o.list.id === destination.droppableId
   });
   
@@ -196,5 +193,5 @@ function newData(state,topLevelLinkItems){
 }
 
 function getTopLevelLink(topLevelLinkItems, id) {
-  return _find(topLevelLinkItems , ['id', id]);
+  return _.find(topLevelLinkItems , ['id', id]);
 }
