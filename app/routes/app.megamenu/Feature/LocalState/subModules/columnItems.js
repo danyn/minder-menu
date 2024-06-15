@@ -1,18 +1,3 @@
-// import {
-//   
-//   
-// } from "../__index.js"
-
-// import {
-//   
-//   
-// } from './__defaultState.js';
-
-
-// import {
-//   
-// } from './initalState'
-
 import {
   getColumn,
   newLinkItem,
