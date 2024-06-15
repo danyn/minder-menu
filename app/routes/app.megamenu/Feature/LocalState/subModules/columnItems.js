@@ -1,18 +1,26 @@
-import {
-  uuid,
-  getColumn,
-} from "../__index.js"
+// import {
+//   
+//   
+// } from "../__index.js"
+
+// import {
+//   
+//   
+// } from './__defaultState.js';
+
+
+// import {
+//   
+// } from './initalState'
 
 import {
+  getColumn,
+  newLinkItem,
   defaultState,
   C,
-} from './__defaultState.js';
+} from '../../FEATURE_INDEX';
 
-
-import {
-  newLinkItem,
-} from './initalState'
-
+import {v4 as uuid} from 'uuid';
 
 export function columnItems (state, sub_payload) {
   const { type, payload } = sub_payload;
