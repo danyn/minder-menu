@@ -2,12 +2,14 @@ import {
   /*state*/
   useLocalState,
   /* Components */ 
-  // AddImageBlockSettings,
-  ImageBlockUserInputs,
   Modal,
   /* data structures */
   structures,
 } from '../../../FEATURE_INDEX.js';
+
+import {
+  ImageBlockUserInputs,
+} from './ImageBlockUserInputs.jsx'
 
 
 export function AddImageBlockModal() {
@@ -30,8 +32,6 @@ export function AddImageBlockModal() {
     }}
     title={`${mode === 'new' ? 'Add image block' : 'Update image block' }`}
   >
-  
-    {/* <AddImageBlockSettings/> */}
     <ImageBlockUserInputs/>
   </Modal>
   )

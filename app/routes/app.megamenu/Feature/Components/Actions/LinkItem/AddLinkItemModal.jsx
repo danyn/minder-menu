@@ -2,10 +2,8 @@ import {
   /*state*/
   useLocalState,
   /* Components */ 
-  AddImageBlockSettings,
   Modal,
-  /* data structures */
-  structures,
+
 } from '../../../FEATURE_INDEX.js';
 
 

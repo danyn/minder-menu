@@ -182,10 +182,8 @@ export  {
 
 /* Column Items */ 
 export {
-  AddImageBlock,
-  AddImageBlockSettings,
-  ImageBlockUserInputs,
-} from './Components/Actions/ImageBlock/AddImageBlock.jsx';
+  AddImageBlockButton,
+} from './Components/Actions/ImageBlock/AddImageBlockButton.jsx';
 
 export {
   AddImageBlockModal,

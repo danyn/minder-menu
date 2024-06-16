@@ -2,13 +2,9 @@ import { useState } from 'react';
 import {
   Modal,
   useLocalState,
-
-  AddImageBlock,
   AddLinkItem,
-
+  AddImageBlockButton,
 } from '../../../FEATURE_INDEX.js';
-
-
 
 
 export function AddColumnItemModal() {
@@ -43,7 +39,9 @@ function Actions({dispatch}) {
   return (
 <div className="MegaMenu-AddColumnItemModal">
   <div className="MegaMenu-AddColumnItemModal-ImageBlock flex flex-center">
-    <AddImageBlock mode="new"/>
+
+    <AddImageBlockButton />
+
   </div>
   <div className="MegaMenu-AddColumnItemModal-Link flex flex-center">
     <AddLinkItem />
