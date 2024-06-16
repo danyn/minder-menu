@@ -184,6 +184,7 @@ export  {
 export {
   AddImageBlock,
   AddImageBlockSettings,
+  ImageBlockUserInputs,
 } from './Components/Actions/ImageBlock/AddImageBlock.jsx';
 
 export {

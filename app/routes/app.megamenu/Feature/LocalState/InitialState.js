@@ -154,6 +154,8 @@ export function newColumn({id}) {
   }
 }
 
+
+
 export function newImageBlock(payload) {
   const {title, description, CTA, imgSrc} = payload;
 
@@ -215,6 +217,25 @@ export function newImageBlock(payload) {
   };
 }
 
+/* Try new creation functions here  */
+
+export function newImageBlockFromItems(items) {
+  // const {title, description, CTA, imgSrc} = payload;
+
+  return {
+    hasStyleRules: false,
+    role: 'imageBlock',
+    meta : {type: 'imageBlock'},
+    id: uuid(),
+    container: {
+      className: classNames.imageBlock.container,
+      classList: classNames.imageBlock.container,
+      tagName: 'div',
+    },
+    items,
+  };
+}
+
 /**
   Structures
  */
@@ -231,22 +252,22 @@ export const structures = {
 export function addNewImageBlock() {
   return  [
       {
-        className: "ImageBlockImage",
+        className: classNames.imageBlock.image.image,
         url: undefined,
         id: uuid(),
       },
       {
-        className: "ImageBlockTitle",
+        className: classNames.imageBlock.title,
         text: "Title",
         id: uuid(),
       },
       {
-        className: "ImageBlockDescription",
+        className: classNames.imageBlock.description,
         text: "A short description",
         id: uuid(),
       },
       {
-        className: "ImageBlockCta",
+        className: classNames.imageBlock.Cta,
         text: "Call to action",
         id: uuid(),
       }

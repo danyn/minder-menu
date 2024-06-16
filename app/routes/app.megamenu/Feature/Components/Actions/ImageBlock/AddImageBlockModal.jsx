@@ -2,7 +2,8 @@ import {
   /*state*/
   useLocalState,
   /* Components */ 
-  AddImageBlockSettings,
+  // AddImageBlockSettings,
+  ImageBlockUserInputs,
   Modal,
   /* data structures */
   structures,
@@ -30,7 +31,8 @@ export function AddImageBlockModal() {
     title={`${mode === 'new' ? 'Add image block' : 'Update image block' }`}
   >
   
-    <AddImageBlockSettings/>
+    {/* <AddImageBlockSettings/> */}
+    <ImageBlockUserInputs/>
   </Modal>
   )
 }

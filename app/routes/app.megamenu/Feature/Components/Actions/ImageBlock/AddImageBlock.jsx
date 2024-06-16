@@ -27,6 +27,7 @@ import {
 import {
   BlockContent,
   SubmitButton,
+  UpsertButton,
 } from './ImageBlocks.jsx';
 
 import _ from 'lodash';
@@ -62,7 +63,7 @@ export function AddImageBlock() {
           payload: {
             AddImageBlockModal: {
               isOpen: true,
-              mode:'new',
+              mode:'insert',
             },
             AddColumnItemModal: {
               isOpen: false,
@@ -161,6 +162,89 @@ return (
     imgSrc={imageFile.url}
     mode={mode}
     id={id}
+  />
+</div>
+)
+}
+
+
+/**  Try new */
+
+
+export function ImageBlockUserInputs() {
+
+  const [state, dispatch] = useLocalState();
+
+  const [title, setTitle] = useState('')
+  
+  const [description, setDescription] = useState('')
+  
+  const [CTA, setCTA] = useState('')
+  
+  const [imageFile, setImageFile] = useState(structures.imageFile);
+
+  const [items, setItems] = useState([]);
+
+  const {mode} = state?.modals?.AddImageBlockModal
+
+  const componentState = {
+    title, 
+    setTitle,
+    description, 
+    setDescription,
+    CTA, 
+    setCTA,
+    imageFile, 
+    setImageFile,
+  }
+
+  const derivedState = useDerivedState()
+
+  const currentColumnLink = derivedState.v.currentColumnLink;
+  const id = currentColumnLink?.id
+
+  useEffect(() => {
+    let _items;
+    if(mode === 'update') {
+      _items = currentColumnLink?.items;
+    } else if (mode === 'insert') {
+      _items = addNewImageBlock();
+      console.log({_items,})
+    } else {
+      throw new Error(`No mode for image block modal ${mode}`)
+    }
+  
+    setTitle(_.find(_items, {className: "ImageBlockTitle"})?.text);
+    setDescription(_.find(_items, {className: "ImageBlockDescription"})?.text);
+    setCTA(_.find(_items, {className: "ImageBlockCta"})?.text);
+    setImageFile(_.find(_items, {className: "ImageBlockImage"}));
+    setItems(_items);
+
+  },[])
+
+
+return (
+<div 
+  className="MegaMenu-AddImageBlock-Settings"
+>
+
+
+ibui
+
+
+
+{
+  /* variable order and variable type */ 
+  Array.isArray(items) &&
+  items.map((item)=> <BlockContent key={item.id} item={item} componentState={componentState} /> )
+}
+
+  <UpsertButton
+    mode={mode}
+    id={ mode === 'update' ? id : null }
+    items={items}
+    dispatch={dispatch}
+    currentValues={{title, description, CTA, imageFile}}
   />
 </div>
 )

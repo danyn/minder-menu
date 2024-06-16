@@ -1,5 +1,6 @@
 import {
   newImageBlock,
+  newImageBlockFromItems,
   getLinkItem,
   getColumn,
   classNames,
@@ -99,6 +100,84 @@ export function imageBlock(state, subPayload) {
         data,
       }
     }
+
+    /******  try new cases here **********/
+    case 'upsert': {
+      const {mode, id, items, currentValues} = payload;
+      let _id;
+      console.dir({items});
+      console.info(`%c ls::imageBlock::insert -> mode:${mode} id:${id} }`,C)
+
+      /* Populate the items with the current values */
+      if(!Array.isArray(items)) {
+        console.warn(`items is not an array ${items}`);
+        return {...state}
+      }
+      items.forEach( item => {
+        console.log({item, currentValues})
+        switch (item.className) {
+          case classNames.imageBlock.Cta:
+            item.text = currentValues.CTA
+            break;
+          case classNames.imageBlock.description:
+            item.text = currentValues.description
+            break;
+          case classNames.imageBlock.image:
+            item.url = currentValues.imageFile
+            break;
+          case classNames.imageBlock.title:
+            item.text = currentValues.title
+            break;
+          default:
+            console.log('no matches!')
+            break;
+        }
+      });
+      
+      const  {
+        data,
+        column,
+      } = getColumn(state);
+
+      if(!Array.isArray(column?.items )) {
+        console.warn('! colum.items is not an array', {column,})
+        return {...state}
+      }
+  
+
+      if(mode === 'insert') {
+        const imageBlock = newImageBlockFromItems(items);
+        _id = imageBlock.id;
+        column.items.push(imageBlock);
+
+      } else if (mode === 'update') {
+        _id = id;
+        column.items.forEach((item, i) => {
+          if(item.id === id) {
+            item.items = items;
+          }
+        });
+      }
+      return {
+        ...state,
+        data,
+        currentLinkItem: {
+          id: _id,
+        },
+        currentColumn: {
+          ...state.currentColumn,
+          selected: false,
+        },
+        modals: {
+          ...state.modals,
+          AddImageBlockModal: {
+            isOpen: false,
+          },
+        },
+      }
+    }
+
+
 
     /****  Don't crash the app *****/
     default: {
