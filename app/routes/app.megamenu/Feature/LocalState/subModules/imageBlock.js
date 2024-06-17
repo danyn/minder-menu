@@ -16,39 +16,6 @@ export function imageBlock(state, subPayload) {
 
   switch (type) {
 
-    // case 'addNew': {
-    //   const {mode, id} = payload;
-    //   console.info(`%c ls::imageBlock::addNew -> mode:${mode} id:${id}`,C)
-      
-    //   const  {
-    //     data,
-    //     column,
-    //   } = getColumn(state);
-
-    //   if(!Array.isArray(column?.items )) {
-    //     console.warn('! colum.items is not an array', {column,})
-    //     return {...state}
-    //   }
-    //   const block = newImageBlock(payload);
-
-    //   if(mode === 'new') {
-    //     column.items.push(block);
-    //   } else if (mode === 'update') {
-    //     column.items.forEach((item, i) => {if(item.id === id){column.items[i] = block}});
-    //   }
-    //   return {
-    //     ...state,
-    //     data,
-    //     currentLinkItem: {
-    //       id: block.id,
-    //     },
-    //     currentColumn: {
-    //       ...state.currentColumn,
-    //       selected: false,
-    //     }
-    //   }
-    // }
-
 
     case 'style' : {
       const {selector, declaration} = payload;
@@ -107,9 +74,8 @@ export function imageBlock(state, subPayload) {
       const {currentValues} = payload;
 
       const {updateId, items, mode} = state.modals.AddImageBlockModal;
+      let insertId;
 
-
-      let _id;
       console.info(`%c ls::imageBlock::upsert`,C)
       console.dir({mode, updateId, items, currentValues})
 
@@ -152,11 +118,10 @@ export function imageBlock(state, subPayload) {
 
       if(mode === 'insert') {
         const imageBlock = newImageBlockFromItems(items);
-        _id = imageBlock.id;
+        insertId = imageBlock.id;
         column.items.push(imageBlock);
 
       } else if (mode === 'update') {
-        _id = updateId;
         column.items.forEach((item, i) => {
           if(item.id === updateId) {
             item.items = items;
@@ -167,7 +132,7 @@ export function imageBlock(state, subPayload) {
         ...state,
         data,
         currentLinkItem: {
-          id: _id,
+          id: mode === 'update' ? updateId : insertId,
         },
         currentColumn: {
           ...state.currentColumn,
@@ -194,6 +159,8 @@ export function imageBlock(state, subPayload) {
         updateId = linkItem.id;
         items = linkItem.items;
         console.log('UPDATE', linkItem, items, getLinkItem(state) )
+      } else {
+        console.log('no mode')
       }
 
       return {
