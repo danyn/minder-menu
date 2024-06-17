@@ -27,17 +27,13 @@ export function EditColumnItem({linkItem: item}) {
       if(item?.role === 'imageBlock') {
         /* Open the addImageBlock modal with a role of edit */ 
         dispatch({
-          type: 'modals',
+          type: 'imageBlock',
           payload: {
-            type: 'open',
-            payload: {
-              AddImageBlockModal: {
-                isOpen: true,
-                mode:'update',
-              }
+            type: 'openModal',
+            payload: { mode:'update' }
             }
           }
-        });
+        );
       } else {
         // its a plain link
         // dispatch()

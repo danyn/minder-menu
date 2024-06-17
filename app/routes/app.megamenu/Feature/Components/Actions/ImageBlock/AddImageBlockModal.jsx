@@ -30,7 +30,7 @@ export function AddImageBlockModal() {
         }
       })
     }}
-    title={`${mode === 'new' ? 'Add image block' : 'Update image block' }`}
+    title={`${mode === 'insert' ? 'Add image block' : 'Update image block' }`}
   >
     <ImageBlockUserInputs/>
   </Modal>

@@ -249,7 +249,7 @@ export const structures = {
 };
 
 
-export function addNewImageBlock() {
+export function getNewImageBlockItems() {
   return  [
       {
         className: classNames.imageBlock.image.image,

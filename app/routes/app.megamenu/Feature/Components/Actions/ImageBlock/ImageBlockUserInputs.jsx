@@ -5,7 +5,7 @@ import {
 
   /* State */
   useLocalState,
-  useDerivedState,
+  // useDerivedState,
   
 
   /* Global Component */
@@ -18,7 +18,7 @@ import {
   structures,
 
   /* Initial static default data */
-  addNewImageBlock,
+  // addNewImageBlock,
 } from '../../../FEATURE_INDEX.js';
 
 import {
@@ -29,18 +29,19 @@ import {
 export function ImageBlockUserInputs() {
 
   const [state, dispatch] = useLocalState();
+  const {mode, items} = state?.modals?.AddImageBlockModal
+  console.log({mode, items});
 
-  const [title, setTitle] = useState('')
-  
-  const [description, setDescription] = useState('')
-  
-  const [CTA, setCTA] = useState('')
-  
+
   const [imageFile, setImageFile] = useState(structures.imageFile);
+  // const [imageFile, setImageFile] = useState( _.find(items, {className: "ImageBlockImage"}));
 
-  const [items, setItems] = useState([]);
+  const [title, setTitle] = useState(_.find(items, {className: "ImageBlockTitle"})?.text);
 
-  const {mode} = state?.modals?.AddImageBlockModal
+  const [description, setDescription] = useState(_.find(items, {className: "ImageBlockDescription"})?.text);
+
+  const [CTA, setCTA] = useState(_.find(items, {className: "ImageBlockCta"})?.text);
+
 
   const componentState = {
     title, 
@@ -53,29 +54,10 @@ export function ImageBlockUserInputs() {
     setImageFile,
   }
 
-  const derivedState = useDerivedState()
+  // const derivedState = useDerivedState()
 
-  const currentColumnLink = derivedState.v.currentColumnLink;
-  const id = currentColumnLink?.id
+  // const currentColumnLink = derivedState.v.currentColumnLink;
 
-  useEffect(() => {
-    let _items;
-    if(mode === 'update') {
-      _items = currentColumnLink?.items;
-    } else if (mode === 'insert') {
-      _items = addNewImageBlock();
-      console.log({_items,})
-    } else {
-      throw new Error(`No mode for image block modal ${mode}`)
-    }
-  
-    setTitle(_.find(_items, {className: "ImageBlockTitle"})?.text);
-    setDescription(_.find(_items, {className: "ImageBlockDescription"})?.text);
-    setCTA(_.find(_items, {className: "ImageBlockCta"})?.text);
-    setImageFile(_.find(_items, {className: "ImageBlockImage"}));
-    setItems(_items);
-
-  },[])
 
 
 return (
@@ -91,7 +73,6 @@ return (
 
   <UpsertButton
     mode={mode}
-    id={ mode === 'update' ? id : null }
     items={items}
     dispatch={dispatch}
     currentValues={{title, description, CTA, imageFile}}

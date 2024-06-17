@@ -40,18 +40,10 @@ export function AddImageBlockButton() {
       console.log('i should only open a modal');
       e.stopPropagation();
       dispatch({
-        type: 'modals',
+        type: 'imageBlock',
         payload: {
-          type: 'open',
-          payload: {
-            AddImageBlockModal: {
-              isOpen: true,
-              mode: 'insert',
-            },
-            AddColumnItemModal: {
-              isOpen: false,
-            }
-          }
+          type: 'openModal',
+          payload: {mode: 'insert'}
         }
       });
 
