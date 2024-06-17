@@ -1,7 +1,5 @@
 export function UpsertButton({
   mode,
-  id,
-  items,
   dispatch,
   currentValues,
 }) {
@@ -17,9 +15,6 @@ export function UpsertButton({
       payload: { 
         type: 'upsert',
         payload: {
-          mode,
-          id,
-          items,
           currentValues,
         }
       }

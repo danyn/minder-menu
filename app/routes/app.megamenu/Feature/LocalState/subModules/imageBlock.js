@@ -1,7 +1,8 @@
 import {
-  newImageBlock,
-  newImageBlockFromItems,
   getLinkItem,
+  newImageBlock,
+  getNewImageBlockItems,
+  newImageBlockFromItems,
   getColumn,
   classNames,
   defaultState,
@@ -15,38 +16,38 @@ export function imageBlock(state, subPayload) {
 
   switch (type) {
 
-    case 'addNew': {
-      const {mode, id} = payload;
-      console.info(`%c ls::imageBlock::addNew -> mode:${mode} id:${id}`,C)
+    // case 'addNew': {
+    //   const {mode, id} = payload;
+    //   console.info(`%c ls::imageBlock::addNew -> mode:${mode} id:${id}`,C)
       
-      const  {
-        data,
-        column,
-      } = getColumn(state);
+    //   const  {
+    //     data,
+    //     column,
+    //   } = getColumn(state);
 
-      if(!Array.isArray(column?.items )) {
-        console.warn('! colum.items is not an array', {column,})
-        return {...state}
-      }
-      const block = newImageBlock(payload);
+    //   if(!Array.isArray(column?.items )) {
+    //     console.warn('! colum.items is not an array', {column,})
+    //     return {...state}
+    //   }
+    //   const block = newImageBlock(payload);
 
-      if(mode === 'new') {
-        column.items.push(block);
-      } else if (mode === 'update') {
-        column.items.forEach((item, i) => {if(item.id === id){column.items[i] = block}});
-      }
-      return {
-        ...state,
-        data,
-        currentLinkItem: {
-          id: block.id,
-        },
-        currentColumn: {
-          ...state.currentColumn,
-          selected: false,
-        }
-      }
-    }
+    //   if(mode === 'new') {
+    //     column.items.push(block);
+    //   } else if (mode === 'update') {
+    //     column.items.forEach((item, i) => {if(item.id === id){column.items[i] = block}});
+    //   }
+    //   return {
+    //     ...state,
+    //     data,
+    //     currentLinkItem: {
+    //       id: block.id,
+    //     },
+    //     currentColumn: {
+    //       ...state.currentColumn,
+    //       selected: false,
+    //     }
+    //   }
+    // }
 
 
     case 'style' : {
@@ -103,10 +104,14 @@ export function imageBlock(state, subPayload) {
 
     /******  try new cases here **********/
     case 'upsert': {
-      const {mode, id, items, currentValues} = payload;
+      const {currentValues} = payload;
+
+      const {updateId, items, mode} = state.modals.AddImageBlockModal;
+
+
       let _id;
-      console.dir({items});
-      console.info(`%c ls::imageBlock::insert -> mode:${mode} id:${id} }`,C)
+      console.info(`%c ls::imageBlock::upsert`,C)
+      console.dir({mode, updateId, items, currentValues})
 
       /* Populate the items with the current values */
       if(!Array.isArray(items)) {
@@ -151,9 +156,9 @@ export function imageBlock(state, subPayload) {
         column.items.push(imageBlock);
 
       } else if (mode === 'update') {
-        _id = id;
+        _id = updateId;
         column.items.forEach((item, i) => {
-          if(item.id === id) {
+          if(item.id === updateId) {
             item.items = items;
           }
         });
@@ -175,6 +180,38 @@ export function imageBlock(state, subPayload) {
           },
         },
       }
+    }
+
+    case 'openModal':  {
+      const {mode} = payload;
+      let items;
+      let updateId;
+      console.log('open modal !', {mode}, payload );
+      if(mode === 'insert') {
+        items = getNewImageBlockItems();
+      } else if (mode === 'update') {
+        const {linkItem} = getLinkItem(state);
+        updateId = linkItem.id;
+        items = linkItem.items;
+        console.log('UPDATE', linkItem, items, getLinkItem(state) )
+      }
+
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          AddImageBlockModal: {
+            isOpen: true,
+            mode,
+            items,
+            updateId,
+          },
+          AddColumnItemModal: {
+            isOpen: false,
+          }
+        }
+      }
+
     }
 
 

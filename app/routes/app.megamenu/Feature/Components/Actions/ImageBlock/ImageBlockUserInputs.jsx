@@ -29,10 +29,8 @@ import {
 export function ImageBlockUserInputs() {
 
   const [state, dispatch] = useLocalState();
-  const {mode, items} = state?.modals?.AddImageBlockModal
-  console.log({mode, items});
-
-
+  const {mode, items} = state?.modals?.AddImageBlockModal;
+  
   const [imageFile, setImageFile] = useState(structures.imageFile);
   // const [imageFile, setImageFile] = useState( _.find(items, {className: "ImageBlockImage"}));
 
@@ -54,11 +52,6 @@ export function ImageBlockUserInputs() {
     setImageFile,
   }
 
-  // const derivedState = useDerivedState()
-
-  // const currentColumnLink = derivedState.v.currentColumnLink;
-
-
 
 return (
 <div 
@@ -73,7 +66,6 @@ return (
 
   <UpsertButton
     mode={mode}
-    items={items}
     dispatch={dispatch}
     currentValues={{title, description, CTA, imageFile}}
   />
