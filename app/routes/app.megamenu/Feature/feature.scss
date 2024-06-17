@@ -413,22 +413,21 @@
     }
   }
 
-  &-AddImageBlock {
-    &-Settings {
-      padding: 12px 6px;
-      
-      background: white;
-      border-radius: 7px;
+  &-ImageBlockUserInputs {
+
+    margin-bottom: 12px;
+    background: #f7f7f7;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px #b3b6b7 dashed;
+
+    &-Container {
+      background-color: rgb(252, 252, 252);
+      padding: 32px;
     }
-    &-Input {
-      margin-bottom: 12px;
-      background: #f7f7f7;
-      padding: 12px;
-      border-radius: 5px;
-      border: 1px #b3b6b7 dashed;
-    }
+  
     &-ImagePicker {
-      // margin: 16px 0;
+      margin: 16px 0;
       padding: 12px;
       padding-top: 36px;
     }

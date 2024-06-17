@@ -55,7 +55,7 @@ export function ImageBlockUserInputs() {
 
 return (
 <div 
-  className="MegaMenu-AddImageBlock-Settings"
+  className="MegaMenu-ImageBlockUserInputs-Container"
 >
 
 {
@@ -111,7 +111,7 @@ function ImageBlockImage({componentState, item}) {
 <ImagePicker 
   imageFile={imageFile} 
   setImageFile={setImageFile} 
-  className='MegaMenu-AddImageBlock-Input MegaMenu-AddImageBlock-ImagePicker' 
+  className='MegaMenu-ImageBlockUserInputs MegaMenu-ImageBlockUserInputs-ImagePicker' 
 />
   );
 
@@ -122,7 +122,7 @@ function ImageBlockTitle({componentState, item }) {
 
   return (
 <div 
-  className="MegaMenu-AddImageBlock-Title MegaMenu-AddImageBlock-Input">
+  className="MegaMenu-ImageBlockUserInputs-Title MegaMenu-ImageBlockUserInputs">
   <TextInput
     label='Title'
     text={title}
@@ -135,7 +135,7 @@ function ImageBlockTitle({componentState, item }) {
 function ImageBlockDescription({componentState,  item}) {
   const {description, setDescription} = componentState;
   return (
-<div className="MegaMenu-AddImageBlock-Description MegaMenu-AddImageBlock-Input">
+<div className="MegaMenu-ImageBlockUserInputs-Description MegaMenu-ImageBlockUserInputs">
   <TextInput
     label='Description'
     text={description}
@@ -148,7 +148,7 @@ function ImageBlockDescription({componentState,  item}) {
 function ImageBlockCta({componentState, item }) {
   const {CTA, setCTA} =  componentState;
   return (
-<div className="MegaMenu-AddImageBlock-CTA MegaMenu-AddImageBlock-Input">
+<div className="MegaMenu-ImageBlockUserInputs-CTA MegaMenu-ImageBlockUserInputs">
   <TextInput
     label='Action'
     text={CTA}
