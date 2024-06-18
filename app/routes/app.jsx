@@ -21,12 +21,12 @@ export default function App() {
 
   return (
     <AppProvider isEmbeddedApp={false} apiKey={apiKey}>
-      <NavMenu>
+      {/* <NavMenu> */}
         <Link to="/app" rel="home">
           Home
         </Link>
         <Link to="/app/megamenu">Mega Menu</Link>
-      </NavMenu>
+      {/* </NavMenu> */}
       <Outlet />
     </AppProvider>
   );

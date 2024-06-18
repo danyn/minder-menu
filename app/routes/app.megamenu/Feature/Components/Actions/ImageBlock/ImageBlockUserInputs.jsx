@@ -57,7 +57,6 @@ export function ImageBlockUserInputs() {
   }
 
   const id = uuid();
-  const type = `${dropTypes.imageBlock}-${id}`;
 
   return (
 <div 
@@ -65,7 +64,7 @@ export function ImageBlockUserInputs() {
 >
 <Droppable
     droppableId={id}
-    type={type}
+    type={dropTypes.imageBlock}
     direction='vertical'
 >
 {

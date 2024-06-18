@@ -45,6 +45,20 @@ export function dragDropDispatcher({
       break;
     }
 
+
+
+    case dropTypes.imageBlock: {
+      
+      dispatch({
+        type: 'dragEvent',
+        payload:{
+          type: 'moveImageBlockUserInput',
+          data: {dragEndResult},
+        }
+      });
+      break;
+    }
+
     default: {
       console.warn('DNDreducer: no set type on the the droppable')
     }

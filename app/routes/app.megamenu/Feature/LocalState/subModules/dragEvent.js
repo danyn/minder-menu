@@ -79,6 +79,26 @@ export function dragEvent (state, payload) {
 
     }
 
+    case 'moveImageBlockUserInput' : {
+      console.info('%c ls::dragEvent::moveImageBlockUserInput', C);
+      const items = [...state.modals.AddImageBlockModal.items];
+      handleMovingUnNestedItems({
+        dragEndResult,
+        droppable: items,
+      })
+
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          AddImageBlockModal: {
+            ...state.modals.AddImageBlockModal,
+            items,
+          },
+        },
+      }
+    }
+
     /* Don't crash the app */
     default: {
       console.info('%c ls::NO CASE FOUND ', C, payload)
