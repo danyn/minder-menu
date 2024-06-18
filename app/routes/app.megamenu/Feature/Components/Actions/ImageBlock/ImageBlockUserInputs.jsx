@@ -1,18 +1,22 @@
 import { useState, useEffect, } from 'react';
 import _ from 'lodash';
+import {v4 as uuid} from 'uuid';
 
 import {
 
   /* State */
   useLocalState,
   // useDerivedState,
-  
+  Droppable,
+  dropTypes,
+  Draggable,
+  DragHandle,
 
   /* Global Component */
   ImagePicker,
   TextField,
   // Action,
- 
+
 
   /* Structures */
   structures,
@@ -52,25 +56,46 @@ export function ImageBlockUserInputs() {
     setImageFile,
   }
 
+  const id = uuid();
+  const type = `${dropTypes.imageBlock}-${id}`;
 
-return (
-<div 
-  className="MegaMenu-ImageBlockUserInputs-Container"
+  return (
+<Droppable
+    droppableId={id}
+    type={type}
 >
-
 {
-  /* variable order and variable type */ 
-  Array.isArray(items) &&
-  items.map((item)=> <BlockContent key={item.id} item={item} componentState={componentState} /> )
-}
+  (provided, snapshot) => {
+  return (
 
-  <UpsertButton
-    mode={mode}
-    dispatch={dispatch}
-    currentValues={{title, description, CTA, imageFile}}
-  />
-</div>
-)
+    <div 
+      className="MegaMenu-ImageBlockUserInputs-Container"
+      {...provided.droppableProps}
+      ref={provided.innerRef}
+      style={{
+        background: snapshot.isDraggingOver ? '#d4e5eb' : 'white',
+      }}
+    >
+
+    {
+      /* variable order and variable components that are draggables */ 
+      Array.isArray(items) &&
+      items.map((item)=> <BlockContent key={item.id} item={item} componentState={componentState} /> )
+    }
+
+      <UpsertButton
+        mode={mode}
+        dispatch={dispatch}
+        currentValues={{title, description, CTA, imageFile}}
+      />
+      {provided.placeholder}
+    </div>
+
+  );
+  }}
+
+  </Droppable> 
+  );
 }
 
 /* Input elements for Image blocks */
@@ -101,9 +126,12 @@ function TextInput({
     />
   </div>
 </div>
+
   );
 }
 
+// dragable
+/* */
 function ImageBlockImage({componentState, item}) {
   const {imageFile, setImageFile} = componentState;
  
@@ -123,6 +151,7 @@ function ImageBlockTitle({componentState, item }) {
   return (
 <div 
   className="MegaMenu-ImageBlockUserInputs-Title MegaMenu-ImageBlockUserInputs">
+
   <TextInput
     label='Title'
     text={title}
