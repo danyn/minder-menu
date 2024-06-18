@@ -44,6 +44,7 @@ export {
 
 export * from './CustomData/definitions.js'
 
+export {DraggableItem} from './Components/UI/DragDrop/DragableItem.jsx'
 
 
 // 

@@ -1,0 +1,11 @@
+.dragable {
+  position: relative;
+}
+.dragHandle {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 36px;
+  transform: rotate(-90deg);
+}
+

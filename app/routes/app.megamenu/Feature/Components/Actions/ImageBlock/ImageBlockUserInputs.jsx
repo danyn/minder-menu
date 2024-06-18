@@ -9,7 +9,7 @@ import {
   // useDerivedState,
   Droppable,
   dropTypes,
-  Draggable,
+  DraggableItem,
   DragHandle,
 
   /* Global Component */
@@ -60,34 +60,48 @@ export function ImageBlockUserInputs() {
   const type = `${dropTypes.imageBlock}-${id}`;
 
   return (
+<div 
+    className="MegaMenu-ImageBlockUserInputs-Container"
+>
 <Droppable
     droppableId={id}
     type={type}
+    direction='vertical'
 >
 {
   (provided, snapshot) => {
   return (
 
     <div 
-      className="MegaMenu-ImageBlockUserInputs-Container"
       {...provided.droppableProps}
       ref={provided.innerRef}
       style={{
         background: snapshot.isDraggingOver ? '#d4e5eb' : 'white',
+        padding: '22px',
       }}
     >
 
     {
       /* variable order and variable components that are draggables */ 
       Array.isArray(items) &&
-      items.map((item)=> <BlockContent key={item.id} item={item} componentState={componentState} /> )
+      items.map((item, i) => {
+        return (
+        <DraggableItem
+          index={i}
+          id={item.id}
+          key={item.id} 
+        >
+          <BlockContent 
+            
+            item={item} 
+            componentState={componentState} 
+          />
+        </DraggableItem>
+        );
+      })
     }
 
-      <UpsertButton
-        mode={mode}
-        dispatch={dispatch}
-        currentValues={{title, description, CTA, imageFile}}
-      />
+
       {provided.placeholder}
     </div>
 
@@ -95,6 +109,12 @@ export function ImageBlockUserInputs() {
   }}
 
   </Droppable> 
+  <UpsertButton
+    mode={mode}
+    dispatch={dispatch}
+    currentValues={{title, description, CTA, imageFile}}
+  />
+</div>
   );
 }
 
