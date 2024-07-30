@@ -126,16 +126,35 @@ function ColumnDroppable({id, column}) {
         index={index} 
         isLinkActive={item.id === state.currentLinkItem.id}
         onClickLink={() => {
-          // console.log('!!!!!!!!!!!!')
-          dispatch({
-            // type: 'subMenu',
-            type: 'columnItems',
-            payload: {
-              type: 'selectCurrentLinkItem',
-              payload: {id: item.id, columnId: id},
+          /* 
+            Only select a new item if it is not already selected 
+            Dispatch an edit modal when it is already selected 
+          */ 
+          if(state.currentLinkItem.id !== item.id) {
+            dispatch({
+              type: 'columnItems',
+              payload: {
+                type: 'selectCurrentLinkItem',
+                payload: {id: item.id, columnId: id},
+              }
             }
+            );
+          } else if ( item.role === 'imageBlock' ) {
+            /* Open the addImageBlock modal with a role of edit */ 
+            dispatch({
+              type: 'imageBlock',
+              payload: {
+                type: 'openModal',
+                payload: { mode:'update' }
+                }
+              }
+            );
+          } else {
+            /* Open the linkItem modal with a role of edit */ 
+            // todo plain link items require a role as well & implement modal
+            console.log(`the item's role is ${item.role}`);
           }
-          )
+
         }}
         onClickEdit={()=>{
           // console.log('on click edit.....')
