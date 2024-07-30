@@ -13,7 +13,7 @@ export function useInitializeFetcher() {
   const fetcher = useFetcher({ key: "init-megamenu" });
   const [state, dispatch] = useLocalState();
 
-  console.log({fetcherData: fetcher.data, state: fetcher.state});
+  // console.log({fetcherData: fetcher.data, state: fetcher.state});
   
   
   useEffect(() => {
@@ -26,14 +26,13 @@ export function useInitializeFetcher() {
       const jsonStringData = fetcher?.data?.payload?.data?.value;
       const dataId = fetcher?.data?.payload?.id;
 
-      console.log('get data for state')
-      if(jsonStringData && dataId) {
+      // console.log('get data for state')
 
-        console.log({jsonStringData})
+      if(jsonStringData && dataId) {
 
         const data = JSON.parse(jsonStringData);
 
-        /* use data from shop metaobject */
+        /* use data from the shop's metaobject returned from the fetcher */
         dispatch({
           type: 'initialData',
           payload: {

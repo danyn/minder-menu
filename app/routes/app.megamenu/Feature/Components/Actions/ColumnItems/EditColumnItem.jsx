@@ -10,7 +10,6 @@ import _ from 'lodash';
 
 export function EditColumnItem({linkItem: item}) {
   const dispatch = useLocalState('dispatch');
-  console.dir({item})
   if(!Boolean(item)) return null;
   let text, role;
   if(item?.role === 'imageBlock') {
@@ -37,6 +36,7 @@ export function EditColumnItem({linkItem: item}) {
           }
         );
       } else {
+        console.log("EditColumnItem:: todo :: add dispatch for plain link item edit modal ")
         // its a plain link
         // dispatch()
       }

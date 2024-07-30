@@ -148,19 +148,18 @@ export function imageBlock(state, subPayload) {
     }
 
     case 'openModal':  {
+      console.info('%c ls::imageBlock::openModal', C);
       const {mode} = payload;
       let items;
       let updateId;
-      console.log('open modal !', {mode}, payload );
       if(mode === 'insert') {
         items = getNewImageBlockItems();
       } else if (mode === 'update') {
         const {linkItem} = getLinkItem(state);
         updateId = linkItem.id;
         items = linkItem.items;
-        console.log('UPDATE', linkItem, items, getLinkItem(state) )
       } else {
-        console.log('no mode')
+        console.log('ls::imageBlock::openModal -> no mode')
       }
 
       return {

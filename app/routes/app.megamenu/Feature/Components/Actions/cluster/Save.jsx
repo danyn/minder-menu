@@ -11,7 +11,7 @@ export function Save() {
   const [state, dispatch] = useLocalState();
   const fetcher = useFetcher({ key: "megamenu-update" });
 
-  console.log({FETCHER_DATA: fetcher.data});
+  // console.log({FETCHER_DATA: fetcher.data});
 
   return (
 <div className="MegaMenu-Save-Container" >
@@ -37,11 +37,7 @@ export function Save() {
         }
       }
 
-      
-
       const GQLvariables = JSON.stringify(variables);
-
-      console.log({variables, GQLvariables});
 
       // Submit raw JSON
       fetcher.submit(
@@ -53,7 +49,7 @@ export function Save() {
         }
       );
 
-
+      // todo :: what is this doing?
       dispatch({
         type: 'clusterAction',
         payload: {
