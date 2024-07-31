@@ -1,6 +1,10 @@
 import {
   newMegaMenu,
-} from '../LocalState/InitialState'
+} from '../LocalState/InitialState';
+
+/*
+  Type and handle for the metaobject used for the megamenu
+*/ 
 export const MegaMenuCustomDataHandle = {
   handle : {
     type: '$app:megaMenu_14',

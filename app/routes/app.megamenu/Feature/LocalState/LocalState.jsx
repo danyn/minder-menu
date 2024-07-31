@@ -1,4 +1,5 @@
 import React, { useReducer, useContext } from "react";
+import { useLoaderData } from "@remix-run/react";
 import { defaultState, C } from './DefaultState.js';
 import { newMegaMenu } from './InitialState.js';
 
@@ -128,8 +129,9 @@ function reducer(state, action) {
 */
 
 export function LocalState ({ children }) {
+  const data = useLoaderData();
   const [state, dispatch] = useReducer(reducer, defaultState);
-  console.info("%c ls::<> ", C, {state});
+  console.info("%c ls::<> ", C, {state, data});
 
   return (
     <LocalDispatchContext.Provider value={dispatch}>
