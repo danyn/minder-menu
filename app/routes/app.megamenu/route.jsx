@@ -21,7 +21,7 @@ import {
   This code needs to only be on the client
   I think that ids are being generated on both 
   the client and the serves and mismatching.
-  
+
 */
 
 
@@ -78,6 +78,23 @@ export const loader = async ({ request }) => {
     return json({ payload: defaultData, dataSource: 'default data' })
   }
 };
+
+
+
+export const clientLoader = async ({
+  request,
+  params,
+  serverLoader,
+}) => {
+  const serverData = await serverLoader();
+  return serverData;
+};
+
+clientLoader.hydrate=true
+
+export function HydrateFallback() {
+  return <p>Loading Menu...</p>;
+}
 
 
 export default function MegaMenu() {

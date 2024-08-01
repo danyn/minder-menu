@@ -53,7 +53,7 @@ export function imageBlock(state, subPayload) {
       if(linkItem.hasStyleRules ) {
         const items = linkItem?.items;
         const blocksItems = getBlockItems(items, classNames, state);
-        console.warn(blocksItems)
+
         if(!blocksItems[classNames.imageBlock.title].style?.fontSize) {
           // console.log('initialize them all!!!')
           blocksItems[classNames.imageBlock.title].style = state.style[classNames.imageBlock.title];
