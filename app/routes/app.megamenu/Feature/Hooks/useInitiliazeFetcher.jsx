@@ -10,7 +10,7 @@ import {
 
 export function useInitializeFetcher() {
   // const shopMegaMenuData = useRouteLoaderData("routes/app.megamenu");
-  const fetcher = useFetcher({ key: "init-megamenu" });
+  const fetcher = useFetcher({ key: "megamenu-init" });
   const [state, dispatch] = useLocalState();
 
   // console.log({fetcherData: fetcher.data, state: fetcher.state});
@@ -19,12 +19,15 @@ export function useInitializeFetcher() {
   useEffect(() => {
     /* Get data from shop metaobject */
     /* The feature just loaded into the browser */
-    // if(fetcher.state === 'loading' || fetcher.state === 'submitting' )
-    //&& !state?.data && !state?.dataId 
+    if(fetcher.state === 'loading' || fetcher.state === 'submitting' ){
+      console.log({stateInEffect: fetcher.state});
+    }
+  
     if( fetcher.state === 'idle' && fetcher?.data ) {
 
       const jsonStringData = fetcher?.data?.payload?.data?.value;
       const dataId = fetcher?.data?.payload?.id;
+      const dataSource = fetcher?.data?.dataSource;
 
       // console.log('get data for state')
 
@@ -38,15 +41,12 @@ export function useInitializeFetcher() {
           payload: {
             dataId,
             data,
-            dataSource: fetcher?.data?.dataSource,
+            dataSource,
           }
         });
   
       } 
     }
-    // if you need to run a cleanup
-    // if you have a race condition https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect
-    // return () => connection.disconnect();
   }, [fetcher.state]);
 
 }
