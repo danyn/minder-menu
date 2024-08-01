@@ -1,6 +1,6 @@
 import React, { useReducer, useContext } from "react";
 import { useLoaderData } from "@remix-run/react";
-import { defaultState, C } from './DefaultState.js';
+import { defaultState, C, initializer } from './DefaultState.js';
 import { newMegaMenu } from './InitialState.js';
 
 /*sub modules*/
@@ -50,7 +50,8 @@ function reducer(state, action) {
 
   switch(type) {
 
-
+    // remove this case
+    /*
     case 'initialData': {
       console.log('initialData::fired')
       const { dataId, data, dataSource } = payload;
@@ -67,7 +68,7 @@ function reducer(state, action) {
         }
       }
     }
-
+    */
 
     // case 'removeFocus': {
     //    /* Deselection for esc key and events */
@@ -125,13 +126,23 @@ function reducer(state, action) {
 }// end reducer 
 
 /*
-  Component - Export a component to use the logic
+  LocalState is a custom component that encapsulates the dispatch and state contexts for the reducer
 */
 
 export function LocalState ({ children }) {
-  const data = useLoaderData();
-  const [state, dispatch] = useReducer(reducer, defaultState);
-  console.info("%c ls::<> ", C, {state, data});
+  const _data = useLoaderData();
+  const data = JSON.parse(_data.payload.data.value);
+
+  const payload = {
+    data, 
+    dataId: _data.payload.id,
+    dataSource: _data.dataSource,
+  };
+
+  // const [state, dispatch] = useReducer(reducer, defaultState);
+
+  const [state, dispatch] = useReducer(reducer, payload, initializer);
+  console.info("%c ls::<> ", C, {state, data, _data});
 
   return (
     <LocalDispatchContext.Provider value={dispatch}>

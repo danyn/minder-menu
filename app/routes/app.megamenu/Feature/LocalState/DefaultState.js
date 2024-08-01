@@ -13,12 +13,13 @@ export const defaultState = {
   currentTopLevelLinkItem: {id: null},
   dataId: null,
   data: false,
+  dataSource: undefined,
   topLevelLinkItems: {
     items: [],
   },
   modals: {
     FeatureModal: {
-      isOpen: false,
+      isOpen: true,
     },
     RightSideBar: {
       isOpen: false,
@@ -124,6 +125,17 @@ export const defaultState = {
     message: '',
   }
 }
+
+export function initializer(payload) {
+  const { data, dataId, dataSource } = payload;
+  return {
+    ...defaultState,
+    data,
+    dataId,
+    dataSource,
+  }
+}
+
 
 
 /* Format string for console.logs() */

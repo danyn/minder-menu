@@ -16,6 +16,14 @@ import {
   Video,
 } from './Feature/FEATURE_INDEX.js';
 
+// https://remix.run/docs/en/main/route/hydrate-fallback
+/*
+  This code needs to only be on the client
+  I think that ids are being generated on both 
+  the client and the serves and mismatching.
+  
+*/
+
 
 export const loader = async ({ request }) => {
   /* 1. Authenticate */

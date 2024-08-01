@@ -2,8 +2,6 @@
 
 import {
   /* Data */
-  // useInitialize,
-  useInitializeFetcher,
   /* State */
   LocalState,
   useLocalState,
@@ -36,13 +34,12 @@ export default function Feature() {
 
 function FeatureContexts() {
 
-  useInitializeFetcher();
   const [state, dispatch] = useLocalState()
 
   return (
 <DerivedState>
   <DragDropContext onDragEnd={ dragEndResult => dragDropDispatcher({dragEndResult, dispatch}) }>  
-    <FullScreenMode isOpen={state.modals.FeatureModal.isOpen} >
+    <FullScreenMode isOpen={true} >
       <FeatureContent/>
     </FullScreenMode>
   </DragDropContext>
@@ -50,6 +47,7 @@ function FeatureContexts() {
   );
 
 }
+
 
 /**
  * All of the components that need access to the contexts including LocalState, and React DnD
